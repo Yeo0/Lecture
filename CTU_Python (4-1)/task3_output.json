@@ -1,0 +1,180 @@
+<<<<<<< HEAD
+{
+	"date": "2017/10/30",
+	"location": "Prague",
+	"note": "All names and scores are random",
+	"nonstaff": [
+		{
+			"name": "Sook Golightly",
+			"score": "28"
+		},
+		{
+			"name": "Tamar Redwood",
+			"score": "26"
+		},
+		{
+			"name": "Vera Savard",
+			"score": "85"
+		},
+		{
+			"name": "Lindy Boshart",
+			"score": "98"
+		},
+		{
+			"name": "Ming Richard",
+			"score": "14"
+		},
+		{
+			"name": "Jennette Zurita",
+			"score": "13"
+		},
+		{
+			"name": "Solomon Murga",
+			"score": "41"
+		},
+		{
+			"name": "Nida Perera",
+			"score": "18"
+		},
+		{
+			"name": "Deena Mally",
+			"score": "12"
+		},
+		{
+			"name": "Antione Heit",
+			"score": "84"
+		},
+		{
+			"name": "Hattie Semien",
+			"score": "87"
+		},
+		{
+			"name": "Vivian Neptune",
+			"score": "43"
+		},
+		{
+			"name": "Noreen Buntin",
+			"score": "87"
+		},
+		{
+			"name": "Takisha Albert",
+			"score": "98"
+		},
+		{
+			"name": "Meaghan Baldree",
+			"score": "24"
+		}
+	],
+	"staff": [
+		{
+			"name": "Shila Lovins",
+			"score": "24"
+		},
+		{
+			"name": "Donella Pederson",
+			"score": "17"
+		},
+		{
+			"name": "Shannan Loring",
+			"score": "86"
+		},
+		{
+			"name": "Elenore Beazley",
+			"score": "96"
+		},
+		{
+			"name": "Hien Gressett",
+			"score": "45"
+		}
+	]
+=======
+{
+	"date": "2017/10/30",
+	"location": "Prague",
+	"note": "All names and scores are random",
+	"nonstaff": [
+		{
+			"name": "Sook Golightly",
+			"score": "28"
+		},
+		{
+			"name": "Tamar Redwood",
+			"score": "26"
+		},
+		{
+			"name": "Vera Savard",
+			"score": "85"
+		},
+		{
+			"name": "Lindy Boshart",
+			"score": "98"
+		},
+		{
+			"name": "Ming Richard",
+			"score": "14"
+		},
+		{
+			"name": "Jennette Zurita",
+			"score": "13"
+		},
+		{
+			"name": "Solomon Murga",
+			"score": "41"
+		},
+		{
+			"name": "Nida Perera",
+			"score": "18"
+		},
+		{
+			"name": "Deena Mally",
+			"score": "12"
+		},
+		{
+			"name": "Antione Heit",
+			"score": "84"
+		},
+		{
+			"name": "Hattie Semien",
+			"score": "87"
+		},
+		{
+			"name": "Vivian Neptune",
+			"score": "43"
+		},
+		{
+			"name": "Noreen Buntin",
+			"score": "87"
+		},
+		{
+			"name": "Takisha Albert",
+			"score": "98"
+		},
+		{
+			"name": "Meaghan Baldree",
+			"score": "24"
+		}
+	],
+	"staff": [
+		{
+			"name": "Shila Lovins",
+			"score": "24"
+		},
+		{
+			"name": "Donella Pederson",
+			"score": "17"
+		},
+		{
+			"name": "Shannan Loring",
+			"score": "86"
+		},
+		{
+			"name": "Elenore Beazley",
+			"score": "96"
+		},
+		{
+			"name": "Hien Gressett",
+			"score": "45"
+		}
+	]
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+}

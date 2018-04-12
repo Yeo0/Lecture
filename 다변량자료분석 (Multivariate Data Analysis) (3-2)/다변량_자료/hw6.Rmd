@@ -1,0 +1,201 @@
+<<<<<<< HEAD
+---
+title: "Hw6_201511646_나여영"
+output:
+  html_document: default
+ 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+> 1. The following data were recorded for two species of irises. The objective is to develop a rule for classifying a new flower based on the four variables sl (Sepal Length), sw (Sepal Width), pl (Petal Length), pw (Petal Width).    
+Provide necessary computer output to solve the following problems 1) and 2).
+
+R에 내장되어 있는 Iris 데이터를 재구성하여 문제와 같이 복원했다.
+```{r iris}
+
+newiris=iris[51:150,]
+
+sl<-newiris$Sepal.Length*10
+sw<-newiris$Sepal.Width*10
+pl<-newiris$Petal.Length*10
+pw<-newiris$Petal.Width*10
+sp<-newiris$Species
+
+niris=data.frame(sl,sw,pl,pw,sp)
+niris
+
+```
+                
+        
+                       
+             
+            
+               
+1)	Develop such a rule using the proc discrim. Try linear and quadratic discriminant functions.        
+
+LDA
+```{r MASS}
+
+library(MASS)
+
+index<-sample(2,size=nrow(niris), replace=T, prob=c(0.7,0.3))
+train<-niris[index==1,]
+test<-niris[index==2,]
+
+#LDA
+flda<-lda(sp~.,data=train)
+fts1<-predict(flda, newdata=test)
+tab1 <- table(test$sp, fts1$class)
+mclda <- 1-sum(diag(tab1))/sum(tab1)
+flda
+tab1
+mclda
+```
+
+
+
+
+
+QDA
+```{r}
+sp=as.numeric(newiris$Species)
+niris=data.frame(sl,sw,pl,pw,sp)
+index<-sample(2,size=nrow(niris), replace=T, prob=c(0.7,0.3))
+train<-niris[index==1,]
+test<-niris[index==2,]
+
+fqda <- qda(sp~.,data=train)
+fts2 <- predict(fqda,newdata=test)
+tab2 <- table(test$sp,fts2$class)
+mcqda <- 1-sum(diag(tab2))/sum(tab2)
+fqda
+tab2
+mcqda
+```
+
+
+
+
+
+2)	A new iris is discovered use your results to classify the new species into one of these two groups. The new data are sl=60, sw=25, pl=40, pw=11. Use linear discriminant functions with c(1|2)=c(2|1) and P1=P2.
+
+```{r}
+newd=data.frame(sl=60,sw=25,pl=40,pw=11)
+predict(flda, newdata = newd)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+---
+title: "Hw6_201511646_나여영"
+output:
+  html_document: default
+ 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+> 1. The following data were recorded for two species of irises. The objective is to develop a rule for classifying a new flower based on the four variables sl (Sepal Length), sw (Sepal Width), pl (Petal Length), pw (Petal Width).    
+Provide necessary computer output to solve the following problems 1) and 2).
+
+R에 내장되어 있는 Iris 데이터를 재구성하여 문제와 같이 복원했다.
+```{r iris}
+
+newiris=iris[51:150,]
+
+sl<-newiris$Sepal.Length*10
+sw<-newiris$Sepal.Width*10
+pl<-newiris$Petal.Length*10
+pw<-newiris$Petal.Width*10
+sp<-newiris$Species
+
+niris=data.frame(sl,sw,pl,pw,sp)
+niris
+
+```
+                
+        
+                       
+             
+            
+               
+1)	Develop such a rule using the proc discrim. Try linear and quadratic discriminant functions.        
+
+LDA
+```{r MASS}
+
+library(MASS)
+
+index<-sample(2,size=nrow(niris), replace=T, prob=c(0.7,0.3))
+train<-niris[index==1,]
+test<-niris[index==2,]
+
+#LDA
+flda<-lda(sp~.,data=train)
+fts1<-predict(flda, newdata=test)
+tab1 <- table(test$sp, fts1$class)
+mclda <- 1-sum(diag(tab1))/sum(tab1)
+flda
+tab1
+mclda
+```
+
+
+
+
+
+QDA
+```{r}
+sp=as.numeric(newiris$Species)
+niris=data.frame(sl,sw,pl,pw,sp)
+index<-sample(2,size=nrow(niris), replace=T, prob=c(0.7,0.3))
+train<-niris[index==1,]
+test<-niris[index==2,]
+
+fqda <- qda(sp~.,data=train)
+fts2 <- predict(fqda,newdata=test)
+tab2 <- table(test$sp,fts2$class)
+mcqda <- 1-sum(diag(tab2))/sum(tab2)
+fqda
+tab2
+mcqda
+```
+
+
+
+
+
+2)	A new iris is discovered use your results to classify the new species into one of these two groups. The new data are sl=60, sw=25, pl=40, pw=11. Use linear discriminant functions with c(1|2)=c(2|1) and P1=P2.
+
+```{r}
+newd=data.frame(sl=60,sw=25,pl=40,pw=11)
+predict(flda, newdata = newd)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1

@@ -1,0 +1,179 @@
+<<<<<<< HEAD
+---
+
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##HW7_Clustering_201511646 나여영
+
+>1. In this example, we have distances between ten American cities based on the flying mileages between them. The objective is to see if we can define clusters of these cities based on the distances.
+
+```{r }
+Atlanta<-c(0,587,1212,701,1936,604,748,2139,2182,543)
+Chicago<-c(587,0,920,940,1745,1188,713,1858,1737,597)
+Denver<-c(1212,920,0,879,831,1726,1631,949,1021,1494)
+Houston<-c(701,940,879,0,1374,968,1420,1645,1891,1220)
+LA<-c(1936,1745,831,1374,0,2339,2451,347,959,2300)
+Miami<-c(604,1188,1726,968,2339,0,1092,2594,2734,923)
+Newyork<-c(748,713,1631,1420,2451,1092,0,2571,2408,205)
+Sanfrancisco<-c(2139,1858,949,1645,347,2594,2571,0,678,2442)
+Seattle<-c(2182,1737,1021,1891,959,2734,2408,678,0,2329)
+WashingtonDC<-c(543,597,1494,1220,2300,923,205,2442,2329,0)
+```
+
+다음은 대칭행렬이 맞는지 확인하는 과정이다
+```{r dplyr}
+cities<-matrix(c(Atlanta,Chicago,Denver, Houston,LA, Miami, Newyork,Sanfrancisco, Seattle, WashingtonDC),10,byrow=T)
+cities
+Tcities=t(cities)
+
+library(dplyr)
+all_equal(cities, Tcities)
+```
+
+맞는지 확인했으므로 그 후 scatter plot을 확인해 데이터의 분포를 본다.
+```{r}
+colnames(cities)<-c("Atlanta","Chicago","Denver", "Houston","LA", "Miami", "Newyork","Sanfrancisco", "Seattle", "WashingtonDC")
+rownames(cities)<-c("Atlanta","Chicago","Denver", "Houston","LA", "Miami", "Newyork","Sanfrancisco", "Seattle", "WashingtonDC")
+
+plot(cities,pch = 19, xlab = c("x coordinate"), ylab = c("y coordinate"),main = "Scatter plot of Cities")
+text(cities, labels = abbreviate(colnames(cities)), cex = 0.8, pos = 3, col = "blue") # pos=1 : at the bottom
+
+```
+
+
+> 1) Do the cluster analysis using (1) single linkage, (2) average linkage and (3) the centroid method.  
+
+(1)single linkage
+```{r}
+hc1_cities<-hclust(dist(cities, method="euclidian")^2, method="single")
+hc1_cities
+rev(hc1_cities) #height : 군집간 거리 / merge: 병합순
+
+```
+
+(2) average linkage
+```{r}
+hc2_cities<-hclust(dist(cities, method="euclidian")^2, method="average")
+hc2_cities
+rev(hc2_cities)
+```
+
+(3) the centroid method.  
+```{r}
+hc3_cities<-hclust(dist(cities, method="euclidian")^2, method="centroid")
+hc3_cities
+rev(hc3_cities)
+```         
+
+
+           
+
+> 2) For each method, (a) determine the number of clusters suggested by dendrogram, the CCC method and the Hotelling T-squared method. Show the assignment of cities to the clusters.            
+
+(a) dendrogram
+```{r}
+my_par = par(no.readonly = TRUE)
+par(oma = c(0, 0, 1, 0))
+par(mfrow=c(1,3))
+plot(hc1_cities, hang = -1, main="Single linkage") # hang = -1 : line from the bottom
+plot(hc2_cities, hang=-1, main="Average linkage")
+plot(hc3_cities, hang=-1, main="Centroid linkage")
+```
+> 결론 : 군집 개수를 두개로 했을 때 Seattle, LA, Sanfrancisco 를 한그룹 / 나머지를 한그룹 이렇게 분류할 수 있다.
+하지만 3개 이상부터는 방법에 따라 다르게 묶이게 된다.
+
+=======
+---
+
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##HW7_Clustering_201511646 나여영
+
+>1. In this example, we have distances between ten American cities based on the flying mileages between them. The objective is to see if we can define clusters of these cities based on the distances.
+
+```{r }
+Atlanta<-c(0,587,1212,701,1936,604,748,2139,2182,543)
+Chicago<-c(587,0,920,940,1745,1188,713,1858,1737,597)
+Denver<-c(1212,920,0,879,831,1726,1631,949,1021,1494)
+Houston<-c(701,940,879,0,1374,968,1420,1645,1891,1220)
+LA<-c(1936,1745,831,1374,0,2339,2451,347,959,2300)
+Miami<-c(604,1188,1726,968,2339,0,1092,2594,2734,923)
+Newyork<-c(748,713,1631,1420,2451,1092,0,2571,2408,205)
+Sanfrancisco<-c(2139,1858,949,1645,347,2594,2571,0,678,2442)
+Seattle<-c(2182,1737,1021,1891,959,2734,2408,678,0,2329)
+WashingtonDC<-c(543,597,1494,1220,2300,923,205,2442,2329,0)
+```
+
+다음은 대칭행렬이 맞는지 확인하는 과정이다
+```{r dplyr}
+cities<-matrix(c(Atlanta,Chicago,Denver, Houston,LA, Miami, Newyork,Sanfrancisco, Seattle, WashingtonDC),10,byrow=T)
+cities
+Tcities=t(cities)
+
+library(dplyr)
+all_equal(cities, Tcities)
+```
+
+맞는지 확인했으므로 그 후 scatter plot을 확인해 데이터의 분포를 본다.
+```{r}
+colnames(cities)<-c("Atlanta","Chicago","Denver", "Houston","LA", "Miami", "Newyork","Sanfrancisco", "Seattle", "WashingtonDC")
+rownames(cities)<-c("Atlanta","Chicago","Denver", "Houston","LA", "Miami", "Newyork","Sanfrancisco", "Seattle", "WashingtonDC")
+
+plot(cities,pch = 19, xlab = c("x coordinate"), ylab = c("y coordinate"),main = "Scatter plot of Cities")
+text(cities, labels = abbreviate(colnames(cities)), cex = 0.8, pos = 3, col = "blue") # pos=1 : at the bottom
+
+```
+
+
+> 1) Do the cluster analysis using (1) single linkage, (2) average linkage and (3) the centroid method.  
+
+(1)single linkage
+```{r}
+hc1_cities<-hclust(dist(cities, method="euclidian")^2, method="single")
+hc1_cities
+rev(hc1_cities) #height : 군집간 거리 / merge: 병합순
+
+```
+
+(2) average linkage
+```{r}
+hc2_cities<-hclust(dist(cities, method="euclidian")^2, method="average")
+hc2_cities
+rev(hc2_cities)
+```
+
+(3) the centroid method.  
+```{r}
+hc3_cities<-hclust(dist(cities, method="euclidian")^2, method="centroid")
+hc3_cities
+rev(hc3_cities)
+```         
+
+
+           
+
+> 2) For each method, (a) determine the number of clusters suggested by dendrogram, the CCC method and the Hotelling T-squared method. Show the assignment of cities to the clusters.            
+
+(a) dendrogram
+```{r}
+my_par = par(no.readonly = TRUE)
+par(oma = c(0, 0, 1, 0))
+par(mfrow=c(1,3))
+plot(hc1_cities, hang = -1, main="Single linkage") # hang = -1 : line from the bottom
+plot(hc2_cities, hang=-1, main="Average linkage")
+plot(hc3_cities, hang=-1, main="Centroid linkage")
+```
+> 결론 : 군집 개수를 두개로 했을 때 Seattle, LA, Sanfrancisco 를 한그룹 / 나머지를 한그룹 이렇게 분류할 수 있다.
+하지만 3개 이상부터는 방법에 따라 다르게 묶이게 된다.
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
