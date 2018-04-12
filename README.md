@@ -1,7 +1,3 @@
-Lecture
-=======
-
-
 # Statistics
 
 기초수학 (Fundamental mathematics) (1-1)
@@ -38,6 +34,7 @@ Lecture
 
 
 
+
 # Computer Science
 
 **데이터베이스 (Database)**
@@ -49,6 +46,8 @@ Lecture
 **자료구조 (Data Structure)**
 
 컴퓨터공학프로그래밍1 (JAVA Programming1) (2-1)
+
+
 
 
 # Etc
