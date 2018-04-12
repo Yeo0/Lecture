@@ -1,0 +1,54 @@
+<<<<<<< HEAD
+gey=read.table("D:/R/geyser299.txt",header=T)
+gey
+plot(gey$waiting, gey$duration)
+attach(gey)
+plot(waiting,duration)
+detach(gey)
+mean(gey$waiting) 
+sd(duration) 표준편차
+cor(waiting,duration) 상관계수
+hist(waiting) 히스토그램
+stem(waiting) 줄기잎그림
+boxplot(waiting) 상자그림
+help(~~~~) 인터넷사이트 도움말(영어..)
+plot(waiting,duration,xlim=c(40,110),ylim=c(1,6)) 산점도 범위지정
+plot(waiting,duration,xlim=c(70,110),ylim=c(1,6),col="red") 산점도색깔설정
+ 
+=======
+<<<<<<< HEAD
+gey=read.table("D:/R/geyser299.txt",header=T)
+gey
+plot(gey$waiting, gey$duration)
+attach(gey)
+plot(waiting,duration)
+detach(gey)
+mean(gey$waiting) 
+sd(duration) 표준편차
+cor(waiting,duration) 상관계수
+hist(waiting) 히스토그램
+stem(waiting) 줄기잎그림
+boxplot(waiting) 상자그림
+help(~~~~) 인터넷사이트 도움말(영어..)
+plot(waiting,duration,xlim=c(40,110),ylim=c(1,6)) 산점도 범위지정
+plot(waiting,duration,xlim=c(70,110),ylim=c(1,6),col="red") 산점도색깔설정
+ 
+=======
+gey=read.table("D:/R/geyser299.txt",header=T)
+gey
+plot(gey$waiting, gey$duration)
+attach(gey)
+plot(waiting,duration)
+detach(gey)
+mean(gey$waiting) 
+sd(duration) 표준편차
+cor(waiting,duration) 상관계수
+hist(waiting) 히스토그램
+stem(waiting) 줄기잎그림
+boxplot(waiting) 상자그림
+help(~~~~) 인터넷사이트 도움말(영어..)
+plot(waiting,duration,xlim=c(40,110),ylim=c(1,6)) 산점도 범위지정
+plot(waiting,duration,xlim=c(70,110),ylim=c(1,6),col="red") 산점도색깔설정
+ 
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96

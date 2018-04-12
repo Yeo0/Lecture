@@ -1,0 +1,388 @@
+<<<<<<< HEAD
+setwd("D:/R/R자료") #작업공간 지정.
+exam1 = read.table("exam1.txt", header=T) #방법1
+exam1 = read.table("D:/R/exam1.txt", header=T) #방법2
+
+str(exam1) #파일구조확인
+exam1$score
+attach(exam1)#사용할 데이터프레임 저장
+score
+
+
+stem(score) #줄기잎그림
+
+
+boxplot(score) #상자그림함수, stem boxplot 기억! 약 200개이하일때 줄기잎, 히스토그램은 데이터 많아도 상관없음
+               #
+
+
+
+
+#줄기늘이기. 10단위 >> 2배 = 5단위로 늘림.
+#0* : 0-4, 0 : 5-9 (줄기늘림 = 도수분포표 계급늘림)
+
+stem(score, scale = 2)
+
+
+
+#줄기줄이기. 10단위 >> 0.5배 = 20단위로 줄임.
+#0* : 0-4, 0 : 5-9 (줄기줄임 = 도수분포표 계급줄임)
+
+stem(score, scale = 0.5)
+
+#세개다 그려보고 적합한거 골라서 판단 (다양하게 그려본 뒤 자료해석)
+#데이터 많아지면 줄기를 늘여야함.
+
+
+#hw값에 따른 score의 줄기잎 그림 그리기
+boxplot(score~hw) #~: 뒷 변수(집단)에 의해서, 오른쪽이 
+t.test(score~hw) #두집단의 평균비교, 독립표본 t검정 #시험범위는 아님
+stem(score~hw) #에러ㅠㅠ >> sol) hw 에따라 분리시킨후 세워야함
+
+
+
+##범주별로 분리##
+#subset(데이터프레임, 조건식)
+hw1 = subset(exam1, hw=1) #==:'같다' =: '배정' 오른쪽을 왼쪽으로 대입
+hw1 = subset(exam1, hw==1)
+hw1
+stem(hw1) #에러
+stem(hw1$score) # hw1 : 데이터프레임!!
+
+hw0 = subset(exam1, hw==0)
+hw0
+stem(hw0$score)
+
+
+
+#score가 50이상인 데이터만 선택
+score50 = subset(exam1, score>=50)
+score50
+stem(score50$score)
+
+
+#히스토그램과의 비교
+#히스토그램은 연속형자료! 이산형자료는 막대그래프
+
+hist(score, nclass=10, right=F) #nclass : 계급수
+hist(score, nclass=20, right=F) #right=T : (iterval), right : 오른쪽개구간 폐구간)
+#61-70, r=F 면 70은 포함안되는거 61~69까지, r=F면 70포함 61~70까지
+
+acid.rain=scan("acid rain.txt")
+acid.rain=read.table("D:/R/R자료/acid rain.txt", header=F)
+stem(acid.rain)
+
+setwd("D:/R/R자료") #작업공간 지정.
+acid.rain = read.table("acid rain.txt", header=T)
+stem(acid.rain, scale = 0.5)
+
+kings = read.table("chosun kings.txt", header=T)
+kings
+str(kings)
+mean(king$Life)
+attach(kings)
+
+stem(Life)
+stem(Life, scale=2)
+stem(Life, scale=0.5)
+
+
+(사조사 3.2끝나구 따면 죠음. 통계청 시험볼때 가산점)
+
+
+
+##4장 수치요약과 상자그림, 여러 그룹의 비교##
+
+#수치자료의 요약 -> 기술통계학 
+#                1.대표값(평균, 중위수, 최빈값) > 자료의 중심을 보려고
+#		     cf. 추론통계학에서는 평균을 주로 씀
+#                탐색적 자료분석에서는 중위수를 주로 사용 (저항성 때문)
+#                2. 산포도(표준편차, 사분위수편차(또는 사분위수범위(Range)):Q3-Q1 ,변동계수(CV)=sd/mean<-단위가 다른 변수의 산포도 비교 혹은 집단의 평균의 차가 심하거나 극심한 비대칭일때
+#                               ,... 자료의 흩어진 정도 )
+#                cf. 추론통계학에서는 표준편차를 주로 사용
+#                3. 비대칭도(왜도(skawness):0에가까우면 좌우대칭, 0보다크면 오른꼬리, 0보다 작으면 왼쪽꼬리)
+#                          
+
+######################################
+
+summary(score)
+boxplot(score) #네모에서 위에가짧으면 왜도음수, 아래가짧으면 왜도양수
+tapply(score,hw,summary) #tapply(사용할 변수, 구분할 변수, 함수), #attach(데이터프레임) 되어있어야함!!
+detach(exam1)
+attach(exam1)
+tapply(exam1$score,exam1$hw,summary)
+
+
+##정규분포 데이터 랜덤생성##
+x = rnorm(10^6,100,10) #random normal 의 약자 #rnomrm(n,m,표편)
+boxplot(x)
+#[mu-1*sigma] = 90 , 90~110 : 0.684정도, 80~120 :0.95정도 (정확하게는 안됨, 정확하게하려면 개수를 많이 뽑으면 됨)
+
+x1=subset(x, x>=90 & x<=110)
+x1
+length(x1)
+length(x1)/length(x)
+
+x2=subset(x, x>=80 & x<=120)
+x2
+length(x2)
+=======
+<<<<<<< HEAD
+setwd("D:/R/R자료") #작업공간 지정.
+exam1 = read.table("exam1.txt", header=T) #방법1
+exam1 = read.table("D:/R/exam1.txt", header=T) #방법2
+
+str(exam1) #파일구조확인
+exam1$score
+attach(exam1)#사용할 데이터프레임 저장
+score
+
+
+stem(score) #줄기잎그림
+
+
+boxplot(score) #상자그림함수, stem boxplot 기억! 약 200개이하일때 줄기잎, 히스토그램은 데이터 많아도 상관없음
+               #
+
+
+
+
+#줄기늘이기. 10단위 >> 2배 = 5단위로 늘림.
+#0* : 0-4, 0 : 5-9 (줄기늘림 = 도수분포표 계급늘림)
+
+stem(score, scale = 2)
+
+
+
+#줄기줄이기. 10단위 >> 0.5배 = 20단위로 줄임.
+#0* : 0-4, 0 : 5-9 (줄기줄임 = 도수분포표 계급줄임)
+
+stem(score, scale = 0.5)
+
+#세개다 그려보고 적합한거 골라서 판단 (다양하게 그려본 뒤 자료해석)
+#데이터 많아지면 줄기를 늘여야함.
+
+
+#hw값에 따른 score의 줄기잎 그림 그리기
+boxplot(score~hw) #~: 뒷 변수(집단)에 의해서, 오른쪽이 
+t.test(score~hw) #두집단의 평균비교, 독립표본 t검정 #시험범위는 아님
+stem(score~hw) #에러ㅠㅠ >> sol) hw 에따라 분리시킨후 세워야함
+
+
+
+##범주별로 분리##
+#subset(데이터프레임, 조건식)
+hw1 = subset(exam1, hw=1) #==:'같다' =: '배정' 오른쪽을 왼쪽으로 대입
+hw1 = subset(exam1, hw==1)
+hw1
+stem(hw1) #에러
+stem(hw1$score) # hw1 : 데이터프레임!!
+
+hw0 = subset(exam1, hw==0)
+hw0
+stem(hw0$score)
+
+
+
+#score가 50이상인 데이터만 선택
+score50 = subset(exam1, score>=50)
+score50
+stem(score50$score)
+
+
+#히스토그램과의 비교
+#히스토그램은 연속형자료! 이산형자료는 막대그래프
+
+hist(score, nclass=10, right=F) #nclass : 계급수
+hist(score, nclass=20, right=F) #right=T : (iterval), right : 오른쪽개구간 폐구간)
+#61-70, r=F 면 70은 포함안되는거 61~69까지, r=F면 70포함 61~70까지
+
+acid.rain=scan("acid rain.txt")
+acid.rain=read.table("D:/R/R자료/acid rain.txt", header=F)
+stem(acid.rain)
+
+setwd("D:/R/R자료") #작업공간 지정.
+acid.rain = read.table("acid rain.txt", header=T)
+stem(acid.rain, scale = 0.5)
+
+kings = read.table("chosun kings.txt", header=T)
+kings
+str(kings)
+mean(king$Life)
+attach(kings)
+
+stem(Life)
+stem(Life, scale=2)
+stem(Life, scale=0.5)
+
+
+(사조사 3.2끝나구 따면 죠음. 통계청 시험볼때 가산점)
+
+
+
+##4장 수치요약과 상자그림, 여러 그룹의 비교##
+
+#수치자료의 요약 -> 기술통계학 
+#                1.대표값(평균, 중위수, 최빈값) > 자료의 중심을 보려고
+#		     cf. 추론통계학에서는 평균을 주로 씀
+#                탐색적 자료분석에서는 중위수를 주로 사용 (저항성 때문)
+#                2. 산포도(표준편차, 사분위수편차(또는 사분위수범위(Range)):Q3-Q1 ,변동계수(CV)=sd/mean<-단위가 다른 변수의 산포도 비교 혹은 집단의 평균의 차가 심하거나 극심한 비대칭일때
+#                               ,... 자료의 흩어진 정도 )
+#                cf. 추론통계학에서는 표준편차를 주로 사용
+#                3. 비대칭도(왜도(skawness):0에가까우면 좌우대칭, 0보다크면 오른꼬리, 0보다 작으면 왼쪽꼬리)
+#                          
+
+######################################
+
+summary(score)
+boxplot(score) #네모에서 위에가짧으면 왜도음수, 아래가짧으면 왜도양수
+tapply(score,hw,summary) #tapply(사용할 변수, 구분할 변수, 함수), #attach(데이터프레임) 되어있어야함!!
+detach(exam1)
+attach(exam1)
+tapply(exam1$score,exam1$hw,summary)
+
+
+##정규분포 데이터 랜덤생성##
+x = rnorm(10^6,100,10) #random normal 의 약자 #rnomrm(n,m,표편)
+boxplot(x)
+#[mu-1*sigma] = 90 , 90~110 : 0.684정도, 80~120 :0.95정도 (정확하게는 안됨, 정확하게하려면 개수를 많이 뽑으면 됨)
+
+x1=subset(x, x>=90 & x<=110)
+x1
+length(x1)
+length(x1)/length(x)
+
+x2=subset(x, x>=80 & x<=120)
+x2
+length(x2)
+=======
+setwd("D:/R/R자료") #작업공간 지정.
+exam1 = read.table("exam1.txt", header=T) #방법1
+exam1 = read.table("D:/R/exam1.txt", header=T) #방법2
+
+str(exam1) #파일구조확인
+exam1$score
+attach(exam1)#사용할 데이터프레임 저장
+score
+
+
+stem(score) #줄기잎그림
+
+
+boxplot(score) #상자그림함수, stem boxplot 기억! 약 200개이하일때 줄기잎, 히스토그램은 데이터 많아도 상관없음
+               #
+
+
+
+
+#줄기늘이기. 10단위 >> 2배 = 5단위로 늘림.
+#0* : 0-4, 0 : 5-9 (줄기늘림 = 도수분포표 계급늘림)
+
+stem(score, scale = 2)
+
+
+
+#줄기줄이기. 10단위 >> 0.5배 = 20단위로 줄임.
+#0* : 0-4, 0 : 5-9 (줄기줄임 = 도수분포표 계급줄임)
+
+stem(score, scale = 0.5)
+
+#세개다 그려보고 적합한거 골라서 판단 (다양하게 그려본 뒤 자료해석)
+#데이터 많아지면 줄기를 늘여야함.
+
+
+#hw값에 따른 score의 줄기잎 그림 그리기
+boxplot(score~hw) #~: 뒷 변수(집단)에 의해서, 오른쪽이 
+t.test(score~hw) #두집단의 평균비교, 독립표본 t검정 #시험범위는 아님
+stem(score~hw) #에러ㅠㅠ >> sol) hw 에따라 분리시킨후 세워야함
+
+
+
+##범주별로 분리##
+#subset(데이터프레임, 조건식)
+hw1 = subset(exam1, hw=1) #==:'같다' =: '배정' 오른쪽을 왼쪽으로 대입
+hw1 = subset(exam1, hw==1)
+hw1
+stem(hw1) #에러
+stem(hw1$score) # hw1 : 데이터프레임!!
+
+hw0 = subset(exam1, hw==0)
+hw0
+stem(hw0$score)
+
+
+
+#score가 50이상인 데이터만 선택
+score50 = subset(exam1, score>=50)
+score50
+stem(score50$score)
+
+
+#히스토그램과의 비교
+#히스토그램은 연속형자료! 이산형자료는 막대그래프
+
+hist(score, nclass=10, right=F) #nclass : 계급수
+hist(score, nclass=20, right=F) #right=T : (iterval), right : 오른쪽개구간 폐구간)
+#61-70, r=F 면 70은 포함안되는거 61~69까지, r=F면 70포함 61~70까지
+
+acid.rain=scan("acid rain.txt")
+acid.rain=read.table("D:/R/R자료/acid rain.txt", header=F)
+stem(acid.rain)
+
+setwd("D:/R/R자료") #작업공간 지정.
+acid.rain = read.table("acid rain.txt", header=T)
+stem(acid.rain, scale = 0.5)
+
+kings = read.table("chosun kings.txt", header=T)
+kings
+str(kings)
+mean(king$Life)
+attach(kings)
+
+stem(Life)
+stem(Life, scale=2)
+stem(Life, scale=0.5)
+
+
+(사조사 3.2끝나구 따면 죠음. 통계청 시험볼때 가산점)
+
+
+
+##4장 수치요약과 상자그림, 여러 그룹의 비교##
+
+#수치자료의 요약 -> 기술통계학 
+#                1.대표값(평균, 중위수, 최빈값) > 자료의 중심을 보려고
+#		     cf. 추론통계학에서는 평균을 주로 씀
+#                탐색적 자료분석에서는 중위수를 주로 사용 (저항성 때문)
+#                2. 산포도(표준편차, 사분위수편차(또는 사분위수범위(Range)):Q3-Q1 ,변동계수(CV)=sd/mean<-단위가 다른 변수의 산포도 비교 혹은 집단의 평균의 차가 심하거나 극심한 비대칭일때
+#                               ,... 자료의 흩어진 정도 )
+#                cf. 추론통계학에서는 표준편차를 주로 사용
+#                3. 비대칭도(왜도(skawness):0에가까우면 좌우대칭, 0보다크면 오른꼬리, 0보다 작으면 왼쪽꼬리)
+#                          
+
+######################################
+
+summary(score)
+boxplot(score) #네모에서 위에가짧으면 왜도음수, 아래가짧으면 왜도양수
+tapply(score,hw,summary) #tapply(사용할 변수, 구분할 변수, 함수), #attach(데이터프레임) 되어있어야함!!
+detach(exam1)
+attach(exam1)
+tapply(exam1$score,exam1$hw,summary)
+
+
+##정규분포 데이터 랜덤생성##
+x = rnorm(10^6,100,10) #random normal 의 약자 #rnomrm(n,m,표편)
+boxplot(x)
+#[mu-1*sigma] = 90 , 90~110 : 0.684정도, 80~120 :0.95정도 (정확하게는 안됨, 정확하게하려면 개수를 많이 뽑으면 됨)
+
+x1=subset(x, x>=90 & x<=110)
+x1
+length(x1)
+length(x1)/length(x)
+
+x2=subset(x, x>=80 & x<=120)
+x2
+length(x2)
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96
+length(x2)/length(x)

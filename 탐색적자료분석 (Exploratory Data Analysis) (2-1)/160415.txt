@@ -1,0 +1,104 @@
+<<<<<<< HEAD
+#이상값 결측치로 변환하기
+airquality
+# subset 데이터 골라내기, 골라서 확인
+
+str(airquality)
+subset(airquality,Ozone>100)
+length(subset(airquality,Ozone>100))
+airquality$Ozone[airquality$Ozone>100]="NA"
+airquality
+
+rm(airquality) # 위에서 데이터프라임이 바뀌었기 때문에 지워줌. 리셋하는것
+
+airquality #원래 데이터 프레임
+str(airquality)
+subset(airquality,Ozone>100) #결측치 여부 확인
+length(subset(airquality,Ozone>100))
+airquality$Ozone[airquality$Ozone>100]=NA
+airquality #결측치 처리한 데이터 프레임
+subset(airquality,Ozone>100) #결측치제거 확인
+
+
+결측치 있다고 해도 나두는게 맞음. 행을 다 지우기 보단
+분석할땐 빼고 분석하더라도 지우면은 안됨.
+
+
+
+#6.정규확률플롯
+
+x=seq(-3,3,0.01)
+y=dnorm(x) #density of x
+plot(y~x, type="l")
+p=(seq(1,500)-0.5)/500 #seq(1,500) : i=1 to 500 
+
+p=(seq(1,500)-0.5)/500 #500개로 나눴으니 500분위를 나타냄
+z=qnorm(p,mean=0,sd=1) #qnorm() :z 값 누적시켜서 보여줌, #z가 분위수 #z가 값이고 p가 면적?확률?
+qnorm(0.5) #면적이 0.5인 z값은 얼마냐
+plot(z~p, type="l")
+abline(c(0,0),lty="dotted")
+
+darwin=c(49,-67,8,16,6,23,28,41,14,29,56,24,75,60,-48)
+qqnorm(darwin) #방법1
+p=(1:length(darwin)-0.5)/length(darwin)
+z=qnorm(p)
+plot(sort(darwin)~z) #방법2
+x11();qqnorm(darwin)
+
+왜 방법2로할까? >> qqnorm의 원리가 방법2라 방법1 방법2 두개 그림이 똑같음 >>실전에선 걍 qqnorm
+
+아웃라이어때문에 정규성만족안할수도
+
+=======
+#이상값 결측치로 변환하기
+airquality
+# subset 데이터 골라내기, 골라서 확인
+
+str(airquality)
+subset(airquality,Ozone>100)
+length(subset(airquality,Ozone>100))
+airquality$Ozone[airquality$Ozone>100]="NA"
+airquality
+
+rm(airquality) # 위에서 데이터프라임이 바뀌었기 때문에 지워줌. 리셋하는것
+
+airquality #원래 데이터 프레임
+str(airquality)
+subset(airquality,Ozone>100) #결측치 여부 확인
+length(subset(airquality,Ozone>100))
+airquality$Ozone[airquality$Ozone>100]=NA
+airquality #결측치 처리한 데이터 프레임
+subset(airquality,Ozone>100) #결측치제거 확인
+
+
+결측치 있다고 해도 나두는게 맞음. 행을 다 지우기 보단
+분석할땐 빼고 분석하더라도 지우면은 안됨.
+
+
+
+#6.정규확률플롯
+
+x=seq(-3,3,0.01)
+y=dnorm(x) #density of x
+plot(y~x, type="l")
+p=(seq(1,500)-0.5)/500 #seq(1,500) : i=1 to 500 
+
+p=(seq(1,500)-0.5)/500 #500개로 나눴으니 500분위를 나타냄
+z=qnorm(p,mean=0,sd=1) #qnorm() :z 값 누적시켜서 보여줌, #z가 분위수 #z가 값이고 p가 면적?확률?
+qnorm(0.5) #면적이 0.5인 z값은 얼마냐
+plot(z~p, type="l")
+abline(c(0,0),lty="dotted")
+
+darwin=c(49,-67,8,16,6,23,28,41,14,29,56,24,75,60,-48)
+qqnorm(darwin) #방법1
+p=(1:length(darwin)-0.5)/length(darwin)
+z=qnorm(p)
+plot(sort(darwin)~z) #방법2
+x11();qqnorm(darwin)
+
+왜 방법2로할까? >> qqnorm의 원리가 방법2라 방법1 방법2 두개 그림이 똑같음 >>실전에선 걍 qqnorm
+
+아웃라이어때문에 정규성만족안할수도
+
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96
+여기까지가 시험범위!

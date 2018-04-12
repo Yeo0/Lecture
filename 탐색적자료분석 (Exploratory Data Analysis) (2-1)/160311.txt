@@ -1,0 +1,322 @@
+<<<<<<< HEAD
+install.packages("UsingR") : 패키지 설치
+library(UsingR) : 패키지 불러오기,실행
+str(airquality) : airquality 에 대한 정보 (데이터구조)
+
+외부데이터 (엑셀읽기)
+install.packages("xlsx")
+library(xlsx)
+data10=read.xlsx("D:/R/data10.xlsx",1) 1은 시트 >>> 에러
+data10
+
+install.packages("xlsx")
+library(xlsx)
+data10=read.xlsx("D:/R/data10.xlsx", 1)
+data10  #header=T 가 디폴트 즉 안쳐도됨
+
+data11=read.xlsx("D:/R/data10xlsx",header=F
+
+data20=read.xlsx("D:/R/data20.xlsx",header=F,1)
+data20
+
+data30=read.table("D:/R/data30.txt",header=F,sep=",") #sep 분리되어있다
+data30
+
+setwd("D:/R") #작업공간 설정
+data30=read.table("data30.txt",header=F,sep=",")
+data30
+
+##R에서 문자열 다루기##
+substr("statistics",1,4) #stat
+substr("statistics",2,4)
+
+y=c("Statistics", "Mathematics") #값여러개만들때 c써야 문자열 입력은 ""
+y
+substr(y,1,3)
+substr(y,c(1,3),c(2,6)) #왜 1,3했는데 st만 나오지? >  앞에꺼끼리 뒤에꺼끼리 (1부터 2까지, 3부터 6까지)
+substr(y,c(1,3),c(2,6)) #c(x,y),c(x1,y1)
+
+substr(y,nchar(y)-1,nchar(y)) #nchar 문자개수세줌 #제일끝에 두글자
+
+str(airquality)
+mean(airquality$Ozone)
+mean(airquality$Ozone,na.rm=T) #rm = remove 약자 na.rm=결측값 제거옵션
+
+
+##데이터프레임다루기##  #데이터핸들링:원하는데이터만꺼내서다룸
+attach(airquality)
+
+airquality$Tot=Wind+Temp   #새로운변수추가
+str(airquality) #데이터구조 보기
+
+airquality$Sq_Temp=sqrt(Temp)
+airquality$log_Temp=log(Temp) #스케일조정(큰수작게)
+airquality$inv_Temp=1/Temp #역수
+mean(Temp)
+
+
+#평균값 이상 high 미만 low, 수치자료범주화
+airquality$type[Temp>=77.88235]="high"   #안에서 작동시킬때 대괄호
+airquality$type[Temp<77.88235]="low"
+str(airquality)
+airquality$type=factor(airquality$type,level=c("high","low")) # 집단비교 type 먼저 만들고 factor/ 문자>factor변환 뒤 데이터 분석
+
+airquality$type
+factor
+
+##조건연산##
+attach(airquality)
+airquality$type2[Temp>=77.88235]="high"   #안에서 작동시킬때 대괄호
+airquality$type2[Temp<77.88235]="low"
+
+airquality$type2=factor(airquality$type2,level=c("high","low"))
+airquality$type2=ifelse(Temp>=mean(Temp),"high","low") #temp가 77.8 이상이면 high 아니면 low
+type2
+
+##데이터 정렬##
+sort(Temp) #디폴트가 오름차순으로 정렬.
+sort(Temp, decreasing=T) #내림차순정렬
+
+order(Temp) #순서값으로 출력됨.
+order(sort(Temp))
+
+airquality[order(Temp), ]  #Temp를 기준으로 데이터프레임 정렬
+airquality[order(Temp,Wind), ] #Temp가 1순위로 정렬, 같은값이 있을때는 Wind 기준으로 정렬됨
+air2=airquality[order(Temp,-Wind), ] #Temp정렬, Wind 내림차순 정렬( - 내림차순, 안붙이면 오름차순)
+air2  #air2에 정렬된 데이터를 부여
+
+
+##데이터선택##
+attach(airquality)
+air_Temp_high=airquality[which(Temp>=mean(Temp)),] #Temp값이 평균 이상인 데이터 선택 >> 데이터 프레임 생성 #[which(조건), 가져올변수]
+air_Temp_high
+
+subset(airquality, select=type, subset=(Temp>=mean(Temp)))  #subset(데이터프레임, select=가져올변수, subset=(조건))
+subset(airquality, select=c(type,type2), subset=(Temp>=mean(Temp))) #문자2개가져올때 c
+str(airquality)
+length(airquality$type)
+head(airquality) # 6행까지의 데이터를 보여줌
+tail(airquality) # 마지막 6행 데이터를 보여줌
+##데이터 프레임에서 결측값 제거##
+air_omit=na.omit(airquality) #결측값이 있는 case(행) 제거
+head(air_omit)
+str(air_omit)
+
+##임의표본추출##
+lotto=sample(1:45, 6)
+=======
+<<<<<<< HEAD
+install.packages("UsingR") : 패키지 설치
+library(UsingR) : 패키지 불러오기,실행
+str(airquality) : airquality 에 대한 정보 (데이터구조)
+
+외부데이터 (엑셀읽기)
+install.packages("xlsx")
+library(xlsx)
+data10=read.xlsx("D:/R/data10.xlsx",1) 1은 시트 >>> 에러
+data10
+
+install.packages("xlsx")
+library(xlsx)
+data10=read.xlsx("D:/R/data10.xlsx", 1)
+data10  #header=T 가 디폴트 즉 안쳐도됨
+
+data11=read.xlsx("D:/R/data10xlsx",header=F
+
+data20=read.xlsx("D:/R/data20.xlsx",header=F,1)
+data20
+
+data30=read.table("D:/R/data30.txt",header=F,sep=",") #sep 분리되어있다
+data30
+
+setwd("D:/R") #작업공간 설정
+data30=read.table("data30.txt",header=F,sep=",")
+data30
+
+##R에서 문자열 다루기##
+substr("statistics",1,4) #stat
+substr("statistics",2,4)
+
+y=c("Statistics", "Mathematics") #값여러개만들때 c써야 문자열 입력은 ""
+y
+substr(y,1,3)
+substr(y,c(1,3),c(2,6)) #왜 1,3했는데 st만 나오지? >  앞에꺼끼리 뒤에꺼끼리 (1부터 2까지, 3부터 6까지)
+substr(y,c(1,3),c(2,6)) #c(x,y),c(x1,y1)
+
+substr(y,nchar(y)-1,nchar(y)) #nchar 문자개수세줌 #제일끝에 두글자
+
+str(airquality)
+mean(airquality$Ozone)
+mean(airquality$Ozone,na.rm=T) #rm = remove 약자 na.rm=결측값 제거옵션
+
+
+##데이터프레임다루기##  #데이터핸들링:원하는데이터만꺼내서다룸
+attach(airquality)
+
+airquality$Tot=Wind+Temp   #새로운변수추가
+str(airquality) #데이터구조 보기
+
+airquality$Sq_Temp=sqrt(Temp)
+airquality$log_Temp=log(Temp) #스케일조정(큰수작게)
+airquality$inv_Temp=1/Temp #역수
+mean(Temp)
+
+
+#평균값 이상 high 미만 low, 수치자료범주화
+airquality$type[Temp>=77.88235]="high"   #안에서 작동시킬때 대괄호
+airquality$type[Temp<77.88235]="low"
+str(airquality)
+airquality$type=factor(airquality$type,level=c("high","low")) # 집단비교 type 먼저 만들고 factor/ 문자>factor변환 뒤 데이터 분석
+
+airquality$type
+factor
+
+##조건연산##
+attach(airquality)
+airquality$type2[Temp>=77.88235]="high"   #안에서 작동시킬때 대괄호
+airquality$type2[Temp<77.88235]="low"
+
+airquality$type2=factor(airquality$type2,level=c("high","low"))
+airquality$type2=ifelse(Temp>=mean(Temp),"high","low") #temp가 77.8 이상이면 high 아니면 low
+type2
+
+##데이터 정렬##
+sort(Temp) #디폴트가 오름차순으로 정렬.
+sort(Temp, decreasing=T) #내림차순정렬
+
+order(Temp) #순서값으로 출력됨.
+order(sort(Temp))
+
+airquality[order(Temp), ]  #Temp를 기준으로 데이터프레임 정렬
+airquality[order(Temp,Wind), ] #Temp가 1순위로 정렬, 같은값이 있을때는 Wind 기준으로 정렬됨
+air2=airquality[order(Temp,-Wind), ] #Temp정렬, Wind 내림차순 정렬( - 내림차순, 안붙이면 오름차순)
+air2  #air2에 정렬된 데이터를 부여
+
+
+##데이터선택##
+attach(airquality)
+air_Temp_high=airquality[which(Temp>=mean(Temp)),] #Temp값이 평균 이상인 데이터 선택 >> 데이터 프레임 생성 #[which(조건), 가져올변수]
+air_Temp_high
+
+subset(airquality, select=type, subset=(Temp>=mean(Temp)))  #subset(데이터프레임, select=가져올변수, subset=(조건))
+subset(airquality, select=c(type,type2), subset=(Temp>=mean(Temp))) #문자2개가져올때 c
+str(airquality)
+length(airquality$type)
+head(airquality) # 6행까지의 데이터를 보여줌
+tail(airquality) # 마지막 6행 데이터를 보여줌
+##데이터 프레임에서 결측값 제거##
+air_omit=na.omit(airquality) #결측값이 있는 case(행) 제거
+head(air_omit)
+str(air_omit)
+
+##임의표본추출##
+lotto=sample(1:45, 6)
+=======
+install.packages("UsingR") : 패키지 설치
+library(UsingR) : 패키지 불러오기,실행
+str(airquality) : airquality 에 대한 정보 (데이터구조)
+
+외부데이터 (엑셀읽기)
+install.packages("xlsx")
+library(xlsx)
+data10=read.xlsx("D:/R/data10.xlsx",1) 1은 시트 >>> 에러
+data10
+
+install.packages("xlsx")
+library(xlsx)
+data10=read.xlsx("D:/R/data10.xlsx", 1)
+data10  #header=T 가 디폴트 즉 안쳐도됨
+
+data11=read.xlsx("D:/R/data10xlsx",header=F
+
+data20=read.xlsx("D:/R/data20.xlsx",header=F,1)
+data20
+
+data30=read.table("D:/R/data30.txt",header=F,sep=",") #sep 분리되어있다
+data30
+
+setwd("D:/R") #작업공간 설정
+data30=read.table("data30.txt",header=F,sep=",")
+data30
+
+##R에서 문자열 다루기##
+substr("statistics",1,4) #stat
+substr("statistics",2,4)
+
+y=c("Statistics", "Mathematics") #값여러개만들때 c써야 문자열 입력은 ""
+y
+substr(y,1,3)
+substr(y,c(1,3),c(2,6)) #왜 1,3했는데 st만 나오지? >  앞에꺼끼리 뒤에꺼끼리 (1부터 2까지, 3부터 6까지)
+substr(y,c(1,3),c(2,6)) #c(x,y),c(x1,y1)
+
+substr(y,nchar(y)-1,nchar(y)) #nchar 문자개수세줌 #제일끝에 두글자
+
+str(airquality)
+mean(airquality$Ozone)
+mean(airquality$Ozone,na.rm=T) #rm = remove 약자 na.rm=결측값 제거옵션
+
+
+##데이터프레임다루기##  #데이터핸들링:원하는데이터만꺼내서다룸
+attach(airquality)
+
+airquality$Tot=Wind+Temp   #새로운변수추가
+str(airquality) #데이터구조 보기
+
+airquality$Sq_Temp=sqrt(Temp)
+airquality$log_Temp=log(Temp) #스케일조정(큰수작게)
+airquality$inv_Temp=1/Temp #역수
+mean(Temp)
+
+
+#평균값 이상 high 미만 low, 수치자료범주화
+airquality$type[Temp>=77.88235]="high"   #안에서 작동시킬때 대괄호
+airquality$type[Temp<77.88235]="low"
+str(airquality)
+airquality$type=factor(airquality$type,level=c("high","low")) # 집단비교 type 먼저 만들고 factor/ 문자>factor변환 뒤 데이터 분석
+
+airquality$type
+factor
+
+##조건연산##
+attach(airquality)
+airquality$type2[Temp>=77.88235]="high"   #안에서 작동시킬때 대괄호
+airquality$type2[Temp<77.88235]="low"
+
+airquality$type2=factor(airquality$type2,level=c("high","low"))
+airquality$type2=ifelse(Temp>=mean(Temp),"high","low") #temp가 77.8 이상이면 high 아니면 low
+type2
+
+##데이터 정렬##
+sort(Temp) #디폴트가 오름차순으로 정렬.
+sort(Temp, decreasing=T) #내림차순정렬
+
+order(Temp) #순서값으로 출력됨.
+order(sort(Temp))
+
+airquality[order(Temp), ]  #Temp를 기준으로 데이터프레임 정렬
+airquality[order(Temp,Wind), ] #Temp가 1순위로 정렬, 같은값이 있을때는 Wind 기준으로 정렬됨
+air2=airquality[order(Temp,-Wind), ] #Temp정렬, Wind 내림차순 정렬( - 내림차순, 안붙이면 오름차순)
+air2  #air2에 정렬된 데이터를 부여
+
+
+##데이터선택##
+attach(airquality)
+air_Temp_high=airquality[which(Temp>=mean(Temp)),] #Temp값이 평균 이상인 데이터 선택 >> 데이터 프레임 생성 #[which(조건), 가져올변수]
+air_Temp_high
+
+subset(airquality, select=type, subset=(Temp>=mean(Temp)))  #subset(데이터프레임, select=가져올변수, subset=(조건))
+subset(airquality, select=c(type,type2), subset=(Temp>=mean(Temp))) #문자2개가져올때 c
+str(airquality)
+length(airquality$type)
+head(airquality) # 6행까지의 데이터를 보여줌
+tail(airquality) # 마지막 6행 데이터를 보여줌
+##데이터 프레임에서 결측값 제거##
+air_omit=na.omit(airquality) #결측값이 있는 case(행) 제거
+head(air_omit)
+str(air_omit)
+
+##임의표본추출##
+lotto=sample(1:45, 6)
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96
+lotto

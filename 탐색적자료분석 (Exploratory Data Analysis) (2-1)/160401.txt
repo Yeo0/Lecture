@@ -1,0 +1,342 @@
+<<<<<<< HEAD
+setwd("D:/R") #작업공간 지정
+exam1 <- read.table ("exam1.txt", header=T)
+attach(exam1)
+score.sort = sort(score)#순서 오름차순으로 나타냄
+q.5 = score.sort[33]
+q.25 = (1/3)*score.sort[16]+(2/3)*score.sort[17]
+q.125 = (1/2)*score.sort[8]+(1/2)*score.sort[9]
+q.0625 = (7/12)*score.sort[4]+(5/12)*score.sort[5]
+
+N=length(score) #데이터개수
+p2=0.5; p4=0.25; p8=0.125; p16=0.0625 
+k2=N*p2+p2/3+1/3 ; w2=k2-trunc(k2) #trunc() : 내림함수
+k4=N*p4+p4/3+1/3 ; w4=k4-trunc(k4)
+k8=N*p8+p8/3+1/3 ; w8=k8-trunc(k8)
+k16=N*p16+p16/3+1/3; w16=k16-trunc(k16)
+
+q.5 = score.sort[(N/2)+(p2/3)+1/3]
+q.25 = (1-w4)*score.sort[k4]+(w4)*score.sort[k4+1]
+q.125 = (1-w8)*score.sort[k8]+(w8)*score.sort[k8+1]
+q.0625 = (1-w16)*score.sort[k16]+(w16)*score.sort[k16+1]
+q.5;q.25;q.125;q.0625
+
+#quantile(자료, 분위수, 타입) : 분위수 함수
+####70p 표1작성###
+qu1=quantile(score, c(1/2,1/4,1/8,1/16), type=8) #type=8???이게멀까 그냥R특징인갑ㄷ.. #가중치
+quantile(score, c(1/2,1/4,1/8,1/16), type=6) #값이다름.. 시험볼땐 무조건 8!!!!!!!! #평균
+
+
+qu2=quantile(score, c(1/2,3/4,7/8,15/16), type=8)
+
+qu2-qu1
+meanqu=(qu1+qu2)/2 #두개의 평균
+sqrqu=qu2-qu1
+
+HU=quantile(score, 3/4) #위사분위수
+HL=quantile(score, 1/4) #아래사분위수
+M=median(score) #중간값
+skew=((HU-M)-(M-HL))/((Hu-M)+(M-HL)) #왜도 
+
+
+#첨도계산 KURTOSIS(E/H)
+KU=(quantile(score, 7/8)- quantile(score, 1/8))/(quantile(score, 3/4)-quantile(score,1/4))-1.704
+
+
+#첨도
+y=rnorm(1000,0,1)
+f1=function(x){1/sqrt(2*pi)*exp(-x^2/2)}
+curve(f1,-4,4, ylim=c(0,1), ylab="density")
+#curve(함수,최소x축범위, 최대x축범위, y축범위, y축 라벨)
+
+
+#qnorm(k) : 좌측으로 100*k8%의 확률을 갖는 x값  #rnorm :랜덤    #(0,1)잇으면 표준정규분포
+#pnorm(1) : x가 1보다 작을 누적확률값
+#옵션 없을때 표준정규분포
+pnorm(-1.96); pnorm(0) ; pnorm(1.96) #값 주고(확률)찾고싶을때
+qnorm(0.025) #면적주고 값 찾고 싶을때 
+qnorm(1/4) #왼쪽면적이 0.25가 되는 Z값 #제1사분위수
+qnorm(2/4)
+qnorm(3/4)
+qnorm(1/8); qnorm(7/8) #좌우대칭 #8분위수
+qnorm(0.95)
+
+#표준정규분포의 첨도값은 3인데 -3해서 보통 0으로기준
+#Eda에서는 첨도값 0으로 기준
+
+
+spr=qnorm(3/4)-qnorm(1/4) 일때 첨도를 구해라 
+1.
+2.30/1.35-1.704
+2.
+3.07/1.35-2.274
+
+f1=function(x){1/sqrt(2*pi)*exp(-x^2/2)}
+f2=function(x){return(1/2.7*((-1.35<x)&(x<1.35)))}
+## return : 값 출력
+curve(f1,-4,4,ylim=c(0,1), ylab="density")
+par(new=T) #겹쳐서 그리기
+curve(f2,-4,4,ylim=c(0,1), ylab="", lty="dotted") #lty : line type
+f2=function(x){return(1/2.7*((-1.00<x)&(x<1.0)))}
+
+#이중지수함수
+f2=function(x){lambda/2*exp(-lambda*abs(x))} #abs(x) : x절댓값
+lambda=log(2)/0.675 #log():자연로그 #log10() : 상용로그
+curve(f2,-4,4,ylim=c(0,1),ylab="", lty="dotted")
+
+
+-스코어가지고 첨도값 구할줄 알아야
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+<<<<<<< HEAD
+setwd("D:/R") #작업공간 지정
+exam1 <- read.table ("exam1.txt", header=T)
+attach(exam1)
+score.sort = sort(score)#순서 오름차순으로 나타냄
+q.5 = score.sort[33]
+q.25 = (1/3)*score.sort[16]+(2/3)*score.sort[17]
+q.125 = (1/2)*score.sort[8]+(1/2)*score.sort[9]
+q.0625 = (7/12)*score.sort[4]+(5/12)*score.sort[5]
+
+N=length(score) #데이터개수
+p2=0.5; p4=0.25; p8=0.125; p16=0.0625 
+k2=N*p2+p2/3+1/3 ; w2=k2-trunc(k2) #trunc() : 내림함수
+k4=N*p4+p4/3+1/3 ; w4=k4-trunc(k4)
+k8=N*p8+p8/3+1/3 ; w8=k8-trunc(k8)
+k16=N*p16+p16/3+1/3; w16=k16-trunc(k16)
+
+q.5 = score.sort[(N/2)+(p2/3)+1/3]
+q.25 = (1-w4)*score.sort[k4]+(w4)*score.sort[k4+1]
+q.125 = (1-w8)*score.sort[k8]+(w8)*score.sort[k8+1]
+q.0625 = (1-w16)*score.sort[k16]+(w16)*score.sort[k16+1]
+q.5;q.25;q.125;q.0625
+
+#quantile(자료, 분위수, 타입) : 분위수 함수
+####70p 표1작성###
+qu1=quantile(score, c(1/2,1/4,1/8,1/16), type=8) #type=8???이게멀까 그냥R특징인갑ㄷ.. #가중치
+quantile(score, c(1/2,1/4,1/8,1/16), type=6) #값이다름.. 시험볼땐 무조건 8!!!!!!!! #평균
+
+
+qu2=quantile(score, c(1/2,3/4,7/8,15/16), type=8)
+
+qu2-qu1
+meanqu=(qu1+qu2)/2 #두개의 평균
+sqrqu=qu2-qu1
+
+HU=quantile(score, 3/4) #위사분위수
+HL=quantile(score, 1/4) #아래사분위수
+M=median(score) #중간값
+skew=((HU-M)-(M-HL))/((Hu-M)+(M-HL)) #왜도 
+
+
+#첨도계산 KURTOSIS(E/H)
+KU=(quantile(score, 7/8)- quantile(score, 1/8))/(quantile(score, 3/4)-quantile(score,1/4))-1.704
+
+
+#첨도
+y=rnorm(1000,0,1)
+f1=function(x){1/sqrt(2*pi)*exp(-x^2/2)}
+curve(f1,-4,4, ylim=c(0,1), ylab="density")
+#curve(함수,최소x축범위, 최대x축범위, y축범위, y축 라벨)
+
+
+#qnorm(k) : 좌측으로 100*k8%의 확률을 갖는 x값  #rnorm :랜덤    #(0,1)잇으면 표준정규분포
+#pnorm(1) : x가 1보다 작을 누적확률값
+#옵션 없을때 표준정규분포
+pnorm(-1.96); pnorm(0) ; pnorm(1.96) #값 주고(확률)찾고싶을때
+qnorm(0.025) #면적주고 값 찾고 싶을때 
+qnorm(1/4) #왼쪽면적이 0.25가 되는 Z값 #제1사분위수
+qnorm(2/4)
+qnorm(3/4)
+qnorm(1/8); qnorm(7/8) #좌우대칭 #8분위수
+qnorm(0.95)
+
+#표준정규분포의 첨도값은 3인데 -3해서 보통 0으로기준
+#Eda에서는 첨도값 0으로 기준
+
+
+spr=qnorm(3/4)-qnorm(1/4) 일때 첨도를 구해라 
+1.
+2.30/1.35-1.704
+2.
+3.07/1.35-2.274
+
+f1=function(x){1/sqrt(2*pi)*exp(-x^2/2)}
+f2=function(x){return(1/2.7*((-1.35<x)&(x<1.35)))}
+## return : 값 출력
+curve(f1,-4,4,ylim=c(0,1), ylab="density")
+par(new=T) #겹쳐서 그리기
+curve(f2,-4,4,ylim=c(0,1), ylab="", lty="dotted") #lty : line type
+f2=function(x){return(1/2.7*((-1.00<x)&(x<1.0)))}
+
+#이중지수함수
+f2=function(x){lambda/2*exp(-lambda*abs(x))} #abs(x) : x절댓값
+lambda=log(2)/0.675 #log():자연로그 #log10() : 상용로그
+curve(f2,-4,4,ylim=c(0,1),ylab="", lty="dotted")
+
+
+-스코어가지고 첨도값 구할줄 알아야
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+setwd("D:/R") #작업공간 지정
+exam1 <- read.table ("exam1.txt", header=T)
+attach(exam1)
+score.sort = sort(score)#순서 오름차순으로 나타냄
+q.5 = score.sort[33]
+q.25 = (1/3)*score.sort[16]+(2/3)*score.sort[17]
+q.125 = (1/2)*score.sort[8]+(1/2)*score.sort[9]
+q.0625 = (7/12)*score.sort[4]+(5/12)*score.sort[5]
+
+N=length(score) #데이터개수
+p2=0.5; p4=0.25; p8=0.125; p16=0.0625 
+k2=N*p2+p2/3+1/3 ; w2=k2-trunc(k2) #trunc() : 내림함수
+k4=N*p4+p4/3+1/3 ; w4=k4-trunc(k4)
+k8=N*p8+p8/3+1/3 ; w8=k8-trunc(k8)
+k16=N*p16+p16/3+1/3; w16=k16-trunc(k16)
+
+q.5 = score.sort[(N/2)+(p2/3)+1/3]
+q.25 = (1-w4)*score.sort[k4]+(w4)*score.sort[k4+1]
+q.125 = (1-w8)*score.sort[k8]+(w8)*score.sort[k8+1]
+q.0625 = (1-w16)*score.sort[k16]+(w16)*score.sort[k16+1]
+q.5;q.25;q.125;q.0625
+
+#quantile(자료, 분위수, 타입) : 분위수 함수
+####70p 표1작성###
+qu1=quantile(score, c(1/2,1/4,1/8,1/16), type=8) #type=8???이게멀까 그냥R특징인갑ㄷ.. #가중치
+quantile(score, c(1/2,1/4,1/8,1/16), type=6) #값이다름.. 시험볼땐 무조건 8!!!!!!!! #평균
+
+
+qu2=quantile(score, c(1/2,3/4,7/8,15/16), type=8)
+
+qu2-qu1
+meanqu=(qu1+qu2)/2 #두개의 평균
+sqrqu=qu2-qu1
+
+HU=quantile(score, 3/4) #위사분위수
+HL=quantile(score, 1/4) #아래사분위수
+M=median(score) #중간값
+skew=((HU-M)-(M-HL))/((Hu-M)+(M-HL)) #왜도 
+
+
+#첨도계산 KURTOSIS(E/H)
+KU=(quantile(score, 7/8)- quantile(score, 1/8))/(quantile(score, 3/4)-quantile(score,1/4))-1.704
+
+
+#첨도
+y=rnorm(1000,0,1)
+f1=function(x){1/sqrt(2*pi)*exp(-x^2/2)}
+curve(f1,-4,4, ylim=c(0,1), ylab="density")
+#curve(함수,최소x축범위, 최대x축범위, y축범위, y축 라벨)
+
+
+#qnorm(k) : 좌측으로 100*k8%의 확률을 갖는 x값  #rnorm :랜덤    #(0,1)잇으면 표준정규분포
+#pnorm(1) : x가 1보다 작을 누적확률값
+#옵션 없을때 표준정규분포
+pnorm(-1.96); pnorm(0) ; pnorm(1.96) #값 주고(확률)찾고싶을때
+qnorm(0.025) #면적주고 값 찾고 싶을때 
+qnorm(1/4) #왼쪽면적이 0.25가 되는 Z값 #제1사분위수
+qnorm(2/4)
+qnorm(3/4)
+qnorm(1/8); qnorm(7/8) #좌우대칭 #8분위수
+qnorm(0.95)
+
+#표준정규분포의 첨도값은 3인데 -3해서 보통 0으로기준
+#Eda에서는 첨도값 0으로 기준
+
+
+spr=qnorm(3/4)-qnorm(1/4) 일때 첨도를 구해라 
+1.
+2.30/1.35-1.704
+2.
+3.07/1.35-2.274
+
+f1=function(x){1/sqrt(2*pi)*exp(-x^2/2)}
+f2=function(x){return(1/2.7*((-1.35<x)&(x<1.35)))}
+## return : 값 출력
+curve(f1,-4,4,ylim=c(0,1), ylab="density")
+par(new=T) #겹쳐서 그리기
+curve(f2,-4,4,ylim=c(0,1), ylab="", lty="dotted") #lty : line type
+f2=function(x){return(1/2.7*((-1.00<x)&(x<1.0)))}
+
+#이중지수함수
+f2=function(x){lambda/2*exp(-lambda*abs(x))} #abs(x) : x절댓값
+lambda=log(2)/0.675 #log():자연로그 #log10() : 상용로그
+curve(f2,-4,4,ylim=c(0,1),ylab="", lty="dotted")
+
+
+-스코어가지고 첨도값 구할줄 알아야
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96

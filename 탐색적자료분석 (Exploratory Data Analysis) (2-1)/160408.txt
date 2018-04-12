@@ -1,0 +1,324 @@
+<<<<<<< HEAD
+
+income=c(880,1511,1944,2350,2738,3135,3609,4170,5068,7695)
+
+par(mfrow=c(1,2)) #한창에 그림두개
+par(mfrow=c(2,2)) #네개
+plot(income);plot(log(income))
+
+x=rnorm(1000,1,0.15) #평균=1, 표편=0.15, 정규분포
+hist(x, nclass=20)
+hist(2*x+100, nclass=20) #선형변환
+
+
+hist(x^2, nclass=25)
+hist(x^4, nclass=25)
+hist(x^(1/4), nclass=25)
+hist(sqrt(x), nclass=25) # sqrt(x)=x^(1/2)
+hist(x^(1/8), nclass=25)
+
+
+y=x^4 #오른쪽꼬리 -> 제곱근 로그 둘다 확인
+hist(y,nclass=25)
+hist(y^(1/2), nclass=25)
+hist(y^(1/4), nclass=25)
+hist(log(y), nclass=25)
+
+
+z=x^(1/4) #왼쪽꼬리 -> 승(power), 지수 둘다 확인
+hist(z)
+hist(z^2, nclass=25)
+hist(z^4, nclass=25)
+
+
+
+##90p
+
+x=seq(0,5,0.1) #0~5까지 0.1단위로 출력
+x
+y1=x
+y2=2*sqrt(x+1)-1
+par(mfrow=c(1,2))
+plot(y1~x)
+par(new=T)
+
+plot(y4~x)
+y4=4*(x+1)^(1/4)-4
+
+y16=16*(x+1)^(1/16)-16
+plot(y16~x)
+plot(log(x+1))
+
+
+#91 log transform
+y16=16*(x+1)^(1/16)-16
+plot(y16~x)
+par(new=T)
+plot(log(x+1),type="l") #type l(L소문자)이 실선 (line)
+
+
+x1=rgamma(100,4);g1=rep("A",100)
+x2=rgamma(100,5);g2=rep("B",100)
+x3=rgamma(100,9);g3=rep("C",100)
+claims = c(x1,x2,x3)
+group = factor(c(g1,g2,g3)) #그룹
+
+par(mfrow=c(2,2))
+
+boxplot(claims~group)
+x11();boxplot(sqrt(claims)~group)
+x11();boxplot(log(claims)~group) #x11() : 새로운 그래프창
+
+
+#96p 그림13
+x=seq(0:5,0.1)
+y=x^2
+
+plot(y~x)
+plot(sqrt(y)~x)
+plot(log(y)~x)
+
+
+#98
+library(MASS)
+data(Animals)
+attach(Animals)
+par(mfrow=c(1,2))
+plot(brain~body)
+plot(log(brain)~log(body))
+
+
+lm(log(brain)~log(body)) #lm(종속변수~독립변수)
+
+m0=lm(log(brain)~log(body))
+m0
+plot(log(brain)~log(body))
+abline(m0$coef,lty="dotted") #선형회귀분석
+
+m1=rlm(log(brain)~log(body)) 
+plot(log(brain)~log(body))
+abline(m1$coef,lty="dotted") #로버스트회귀분석
+
+
+
+
+#102p 13),14) g해보기
+
+
+=======
+<<<<<<< HEAD
+
+income=c(880,1511,1944,2350,2738,3135,3609,4170,5068,7695)
+
+par(mfrow=c(1,2)) #한창에 그림두개
+par(mfrow=c(2,2)) #네개
+plot(income);plot(log(income))
+
+x=rnorm(1000,1,0.15) #평균=1, 표편=0.15, 정규분포
+hist(x, nclass=20)
+hist(2*x+100, nclass=20) #선형변환
+
+
+hist(x^2, nclass=25)
+hist(x^4, nclass=25)
+hist(x^(1/4), nclass=25)
+hist(sqrt(x), nclass=25) # sqrt(x)=x^(1/2)
+hist(x^(1/8), nclass=25)
+
+
+y=x^4 #오른쪽꼬리 -> 제곱근 로그 둘다 확인
+hist(y,nclass=25)
+hist(y^(1/2), nclass=25)
+hist(y^(1/4), nclass=25)
+hist(log(y), nclass=25)
+
+
+z=x^(1/4) #왼쪽꼬리 -> 승(power), 지수 둘다 확인
+hist(z)
+hist(z^2, nclass=25)
+hist(z^4, nclass=25)
+
+
+
+##90p
+
+x=seq(0,5,0.1) #0~5까지 0.1단위로 출력
+x
+y1=x
+y2=2*sqrt(x+1)-1
+par(mfrow=c(1,2))
+plot(y1~x)
+par(new=T)
+
+plot(y4~x)
+y4=4*(x+1)^(1/4)-4
+
+y16=16*(x+1)^(1/16)-16
+plot(y16~x)
+plot(log(x+1))
+
+
+#91 log transform
+y16=16*(x+1)^(1/16)-16
+plot(y16~x)
+par(new=T)
+plot(log(x+1),type="l") #type l(L소문자)이 실선 (line)
+
+
+x1=rgamma(100,4);g1=rep("A",100)
+x2=rgamma(100,5);g2=rep("B",100)
+x3=rgamma(100,9);g3=rep("C",100)
+claims = c(x1,x2,x3)
+group = factor(c(g1,g2,g3)) #그룹
+
+par(mfrow=c(2,2))
+
+boxplot(claims~group)
+x11();boxplot(sqrt(claims)~group)
+x11();boxplot(log(claims)~group) #x11() : 새로운 그래프창
+
+
+#96p 그림13
+x=seq(0:5,0.1)
+y=x^2
+
+plot(y~x)
+plot(sqrt(y)~x)
+plot(log(y)~x)
+
+
+#98
+library(MASS)
+data(Animals)
+attach(Animals)
+par(mfrow=c(1,2))
+plot(brain~body)
+plot(log(brain)~log(body))
+
+
+lm(log(brain)~log(body)) #lm(종속변수~독립변수)
+
+m0=lm(log(brain)~log(body))
+m0
+plot(log(brain)~log(body))
+abline(m0$coef,lty="dotted") #선형회귀분석
+
+m1=rlm(log(brain)~log(body)) 
+plot(log(brain)~log(body))
+abline(m1$coef,lty="dotted") #로버스트회귀분석
+
+
+
+
+#102p 13),14) g해보기
+
+
+=======
+
+income=c(880,1511,1944,2350,2738,3135,3609,4170,5068,7695)
+
+par(mfrow=c(1,2)) #한창에 그림두개
+par(mfrow=c(2,2)) #네개
+plot(income);plot(log(income))
+
+x=rnorm(1000,1,0.15) #평균=1, 표편=0.15, 정규분포
+hist(x, nclass=20)
+hist(2*x+100, nclass=20) #선형변환
+
+
+hist(x^2, nclass=25)
+hist(x^4, nclass=25)
+hist(x^(1/4), nclass=25)
+hist(sqrt(x), nclass=25) # sqrt(x)=x^(1/2)
+hist(x^(1/8), nclass=25)
+
+
+y=x^4 #오른쪽꼬리 -> 제곱근 로그 둘다 확인
+hist(y,nclass=25)
+hist(y^(1/2), nclass=25)
+hist(y^(1/4), nclass=25)
+hist(log(y), nclass=25)
+
+
+z=x^(1/4) #왼쪽꼬리 -> 승(power), 지수 둘다 확인
+hist(z)
+hist(z^2, nclass=25)
+hist(z^4, nclass=25)
+
+
+
+##90p
+
+x=seq(0,5,0.1) #0~5까지 0.1단위로 출력
+x
+y1=x
+y2=2*sqrt(x+1)-1
+par(mfrow=c(1,2))
+plot(y1~x)
+par(new=T)
+
+plot(y4~x)
+y4=4*(x+1)^(1/4)-4
+
+y16=16*(x+1)^(1/16)-16
+plot(y16~x)
+plot(log(x+1))
+
+
+#91 log transform
+y16=16*(x+1)^(1/16)-16
+plot(y16~x)
+par(new=T)
+plot(log(x+1),type="l") #type l(L소문자)이 실선 (line)
+
+
+x1=rgamma(100,4);g1=rep("A",100)
+x2=rgamma(100,5);g2=rep("B",100)
+x3=rgamma(100,9);g3=rep("C",100)
+claims = c(x1,x2,x3)
+group = factor(c(g1,g2,g3)) #그룹
+
+par(mfrow=c(2,2))
+
+boxplot(claims~group)
+x11();boxplot(sqrt(claims)~group)
+x11();boxplot(log(claims)~group) #x11() : 새로운 그래프창
+
+
+#96p 그림13
+x=seq(0:5,0.1)
+y=x^2
+
+plot(y~x)
+plot(sqrt(y)~x)
+plot(log(y)~x)
+
+
+#98
+library(MASS)
+data(Animals)
+attach(Animals)
+par(mfrow=c(1,2))
+plot(brain~body)
+plot(log(brain)~log(body))
+
+
+lm(log(brain)~log(body)) #lm(종속변수~독립변수)
+
+m0=lm(log(brain)~log(body))
+m0
+plot(log(brain)~log(body))
+abline(m0$coef,lty="dotted") #선형회귀분석
+
+m1=rlm(log(brain)~log(body)) 
+plot(log(brain)~log(body))
+abline(m1$coef,lty="dotted") #로버스트회귀분석
+
+
+
+
+#102p 13),14) g해보기
+
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96
