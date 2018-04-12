@@ -1,0 +1,195 @@
+<<<<<<< HEAD
+161205 전살
+
+데이터 통계량을 통해
+
+
+연속형에서는 최빈값 안씀
+이산형에서 주로 사용
+ㄴ 새로운 패키지 설치해야함.
+		
+
+str(faithful)
+head(faithful)
+
+attach(faithful)
+mean(waiting)
+median(waiting)
+
+table(waiting) #빈도가 도수분포표 형태로
+
+my_id=which(table(waiting)==max(table(waiting)) #앞에있는건 빈도 나타내는 벡터 원소 한개한개 == maximum 이랑 일치하는 원소가 어떤건지 확인해주는거임
+)
+or                                              #t,f반환/ which는 조건식을 만족하는 관찰치의 이름(테이블에 출현하는는 값의(관찰치의)번호)이 결과가됨
+my_id=which.max(table(waiting))
+#맥시멈만 찾아주는 함수
+
+table(waiting)[my_id]
+
+
+______
+결측치 제거 (있으면 통계량 계산 안해줌)
+
+함 해보기
+____
+install.packages("UsingR")
+
+library(UsingR)
+	
+
+데이터개수 적을때 평균 중위수 차이 많이남 -> 한두개정도의 데이터가 극단치 존재함(평균은 이에 영향을 많이 받음)
+
+str(cfb)
+attach(cfb)
+mean(INCOME)
+median(INCOME)
+
+데이터개수 많은데도 평균 중위수 차이 많이남.-> 데이터 전체 분포가 대칭적인 형태에서 많이 벗어난 상태 (왜도의 방향 :꼬리가 있는 방향 -오른쪽에 꼬리가 있으면 우향왜곡
+우향왜곡있을때 평균>중위수 됨.
+
+
+
+
+____
+INCOME
+hist(INCOME,breaks=50,freq=F,main="Distribution of INCOME", ylim=c(0.1,5e-5), col="green")
+lines(density(INCOME),col="blue",lwd=2)
+rug(INCOME)
+	
+
+
+
+___
+데이터를 로그변환 으로 좌우대칭으로 분포형태로 변환 시도가 필요함.
+
+여기제대로안들어서 공부좀필요
+
+
+
+
+
+
+
+___
+퍼짐에 대한 요약통계
+범위=최대값-최소값
+
+범위에서 극단치의 영향을 줄이기 위해 등장한것 -> 사분위 범위
+
+probs=0.25 = 하위 25%의 기준값 =Q1
+0.75면 Q3
+_____
+0 1로만 이루어진 데이터 -> 1인 비율
+즉 논리형에서 비율을 계산할때 eman 사용 가능
+
+
+_____
+scale 함수
+
+
+
+
+
+
+
+
+
+
+=======
+161205 전살
+
+데이터 통계량을 통해
+
+
+연속형에서는 최빈값 안씀
+이산형에서 주로 사용
+ㄴ 새로운 패키지 설치해야함.
+		
+
+str(faithful)
+head(faithful)
+
+attach(faithful)
+mean(waiting)
+median(waiting)
+
+table(waiting) #빈도가 도수분포표 형태로
+
+my_id=which(table(waiting)==max(table(waiting)) #앞에있는건 빈도 나타내는 벡터 원소 한개한개 == maximum 이랑 일치하는 원소가 어떤건지 확인해주는거임
+)
+or                                              #t,f반환/ which는 조건식을 만족하는 관찰치의 이름(테이블에 출현하는는 값의(관찰치의)번호)이 결과가됨
+my_id=which.max(table(waiting))
+#맥시멈만 찾아주는 함수
+
+table(waiting)[my_id]
+
+
+______
+결측치 제거 (있으면 통계량 계산 안해줌)
+
+함 해보기
+____
+install.packages("UsingR")
+
+library(UsingR)
+	
+
+데이터개수 적을때 평균 중위수 차이 많이남 -> 한두개정도의 데이터가 극단치 존재함(평균은 이에 영향을 많이 받음)
+
+str(cfb)
+attach(cfb)
+mean(INCOME)
+median(INCOME)
+
+데이터개수 많은데도 평균 중위수 차이 많이남.-> 데이터 전체 분포가 대칭적인 형태에서 많이 벗어난 상태 (왜도의 방향 :꼬리가 있는 방향 -오른쪽에 꼬리가 있으면 우향왜곡
+우향왜곡있을때 평균>중위수 됨.
+
+
+
+
+____
+INCOME
+hist(INCOME,breaks=50,freq=F,main="Distribution of INCOME", ylim=c(0.1,5e-5), col="green")
+lines(density(INCOME),col="blue",lwd=2)
+rug(INCOME)
+	
+
+
+
+___
+데이터를 로그변환 으로 좌우대칭으로 분포형태로 변환 시도가 필요함.
+
+여기제대로안들어서 공부좀필요
+
+
+
+
+
+
+
+___
+퍼짐에 대한 요약통계
+범위=최대값-최소값
+
+범위에서 극단치의 영향을 줄이기 위해 등장한것 -> 사분위 범위
+
+probs=0.25 = 하위 25%의 기준값 =Q1
+0.75면 Q3
+_____
+0 1로만 이루어진 데이터 -> 1인 비율
+즉 논리형에서 비율을 계산할때 eman 사용 가능
+
+
+_____
+scale 함수
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1

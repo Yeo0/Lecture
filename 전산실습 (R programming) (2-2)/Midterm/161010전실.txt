@@ -1,0 +1,227 @@
+<<<<<<< HEAD
+http://mlr.cs.umass.edu/ml/datasets.html # 오이사이트 나중에 함 참고해봐도 좋을듯
+
+
+URL="http://mlr.cs.umass.edu/ml/machine-learning-databases/iris/iris.data" #쌍따옴표 필요
+data=read.csv(URL, header=F) #header f 
+data
+
+head(data, n=3)
+
+data1=read.csv(URL, header=F, col.names=c("S.length","S.width","P.length","P.width","Species"))
+
+head(data1)
+
+
+pi
+print(pi) #결과적으로 똑같은데 가장 큰 차이는 아래
+
+print("원주율은",pi,"이다") #2개이상의 객체가 들어갔기때문에 (3개) print는 오류, print는 1개밖에 안됨
+
+cat("원주율은",pi,"이다","\n")
+
+
+
+y=matrix(1:4, nrow=2)
+y
+
+cat(y,"\n") # 벡터만 가능
+
+
+
+
+x=c(24,28,31,35)
+meanx=mean(x)
+sdx=sd(x)
+
+cat("Data:",x,"\n", file="C:/Temp/out1.txt") # 이파일을 만들어서 여기다 프린트 시켜라
+cat("Mean value is",meanx,"\n", file="C:/Temp/out1.txt", append=T)
+cat("Standard deviation is",sdx,"\n", file="C:/Temp/out1.txt", append=T)
+
+
+out=file("C:/Temp/out2.txt", "w") #w:텍스트 파일로 만들어라
+cat("Data:",x,"\n", file=out)
+cat("Mean value is", meanx,"\n",file=out)
+cat("Standard deviation is",x,"\n",file=out)
+close(out)
+
+
+women
+
+write.table(women,"C:/Temp/out31.txt") #다 따옴표로 저장됨
+write.table(women,"C:/Temp/out31.txt", quote=F) #따옴표사라짐
+write.table(women,"C:/Temp/out31.txt", quote=F, row.names=F)#번호사라짐
+write.table(women,"C:/Temp/out31.txt", quote=F, row.names=F, sep=",")
+
+
+install.packages("xlsx")
+library(xlsx)
+write.xlsx(women,"C:/Temp/women.xlsx")
+write.table(women,"C:/Temp/women.csv", sep=",", row.names=F) # 오 이것도 가능하네
+
+x=c(1,2,3)
+y=c(4,5,6)
+xy=cbind(x,y)
+xy
+
+write.table(xy,"C:/Temp/xy.csv",sep=",", row.names=F)
+
+
+
+#문제9
+URL="http://lib.stat.cmu.edu/datasets/fl2000.txt"
+data=read.table(URL, header=T)
+data1=data.frame(data)
+data1
+
+1) 
+str(data1) # 67개 관측값, 17개 변수
+
+2) 
+head(data1)
+head(data1[c(1,6,7)],n=1)  #배열안에 c가 있어야
+
+3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+http://mlr.cs.umass.edu/ml/datasets.html # 오이사이트 나중에 함 참고해봐도 좋을듯
+
+
+URL="http://mlr.cs.umass.edu/ml/machine-learning-databases/iris/iris.data" #쌍따옴표 필요
+data=read.csv(URL, header=F) #header f 
+data
+
+head(data, n=3)
+
+data1=read.csv(URL, header=F, col.names=c("S.length","S.width","P.length","P.width","Species"))
+
+head(data1)
+
+
+pi
+print(pi) #결과적으로 똑같은데 가장 큰 차이는 아래
+
+print("원주율은",pi,"이다") #2개이상의 객체가 들어갔기때문에 (3개) print는 오류, print는 1개밖에 안됨
+
+cat("원주율은",pi,"이다","\n")
+
+
+
+y=matrix(1:4, nrow=2)
+y
+
+cat(y,"\n") # 벡터만 가능
+
+
+
+
+x=c(24,28,31,35)
+meanx=mean(x)
+sdx=sd(x)
+
+cat("Data:",x,"\n", file="C:/Temp/out1.txt") # 이파일을 만들어서 여기다 프린트 시켜라
+cat("Mean value is",meanx,"\n", file="C:/Temp/out1.txt", append=T)
+cat("Standard deviation is",sdx,"\n", file="C:/Temp/out1.txt", append=T)
+
+
+out=file("C:/Temp/out2.txt", "w") #w:텍스트 파일로 만들어라
+cat("Data:",x,"\n", file=out)
+cat("Mean value is", meanx,"\n",file=out)
+cat("Standard deviation is",x,"\n",file=out)
+close(out)
+
+
+women
+
+write.table(women,"C:/Temp/out31.txt") #다 따옴표로 저장됨
+write.table(women,"C:/Temp/out31.txt", quote=F) #따옴표사라짐
+write.table(women,"C:/Temp/out31.txt", quote=F, row.names=F)#번호사라짐
+write.table(women,"C:/Temp/out31.txt", quote=F, row.names=F, sep=",")
+
+
+install.packages("xlsx")
+library(xlsx)
+write.xlsx(women,"C:/Temp/women.xlsx")
+write.table(women,"C:/Temp/women.csv", sep=",", row.names=F) # 오 이것도 가능하네
+
+x=c(1,2,3)
+y=c(4,5,6)
+xy=cbind(x,y)
+xy
+
+write.table(xy,"C:/Temp/xy.csv",sep=",", row.names=F)
+
+
+
+#문제9
+URL="http://lib.stat.cmu.edu/datasets/fl2000.txt"
+data=read.table(URL, header=T)
+data1=data.frame(data)
+data1
+
+1) 
+str(data1) # 67개 관측값, 17개 변수
+
+2) 
+head(data1)
+head(data1[c(1,6,7)],n=1)  #배열안에 c가 있어야
+
+3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1

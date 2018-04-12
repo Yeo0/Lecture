@@ -1,0 +1,48 @@
+<<<<<<< HEAD
+161123 Practical Dynamic Programming : Game
+
+해결하려는 문제 sub프라블럼으로 나눔 - recurvsive한 이전 프라블럼의 것을 가직고 다음단계를 해결할 수 있나.
+이것이 모든 가능성 다 고려하나.
+
+playing piano!
+그 시퀀스가 불편한게 있음안됨. 가장 유연하게 그 흐름을 이어나가야함
+단계마다 불편한 정도의 합이 최소가 되는 시퀀스 찾는것 - squential labling
+
+
+fi     fn
+
+다익스트라해결가능하지만 다이내믹프로그래밍쓰면 더빨라짐
+
+=======
+<<<<<<< HEAD
+161123 Practical Dynamic Programming : Game
+
+해결하려는 문제 sub프라블럼으로 나눔 - recurvsive한 이전 프라블럼의 것을 가직고 다음단계를 해결할 수 있나.
+이것이 모든 가능성 다 고려하나.
+
+playing piano!
+그 시퀀스가 불편한게 있음안됨. 가장 유연하게 그 흐름을 이어나가야함
+단계마다 불편한 정도의 합이 최소가 되는 시퀀스 찾는것 - squential labling
+
+
+fi     fn
+
+다익스트라해결가능하지만 다이내믹프로그래밍쓰면 더빨라짐
+
+=======
+161123 Practical Dynamic Programming : Game
+
+해결하려는 문제 sub프라블럼으로 나눔 - recurvsive한 이전 프라블럼의 것을 가직고 다음단계를 해결할 수 있나.
+이것이 모든 가능성 다 고려하나.
+
+playing piano!
+그 시퀀스가 불편한게 있음안됨. 가장 유연하게 그 흐름을 이어나가야함
+단계마다 불편한 정도의 합이 최소가 되는 시퀀스 찾는것 - squential labling
+
+
+fi     fn
+
+다익스트라해결가능하지만 다이내믹프로그래밍쓰면 더빨라짐
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96

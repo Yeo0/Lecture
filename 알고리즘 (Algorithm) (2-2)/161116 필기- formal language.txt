@@ -1,0 +1,315 @@
+<<<<<<< HEAD
+11/16(수)
+formal language
+
+language: 우리가 표기하기 위한 시퀀스들의 부분집합
+
+grammar definiction 
+
+derivation tree
+
+grammar type
+
+____ 지난시간 복습
+23p
+
+context freem grammar
+
+24p
+논터미널 하나는 들어가야 (하나도 없으면 정의가 안됨)
+
+context sensitive
+1-2 
+3-6 논터미널
+7-10 터미널1 논터미널1
+
+아뭐라는겨
+
+25p
+regular grammar
+2. right regular grammer (오른쪽으로 계속 확장)
+아래2. left regualar grammer
+
+26p
+컨택스 샌서티브 - 싱글 논터미널 왼쪽에 하나 있어야'
+봐야되는건 옆에있는 알파와 알파프라임이 유지하는지를 봐야함
+
+3.4. context free
+4. 왼쪽에 다 터미널들, 그 뒤에 논터미널 > 오른쪽으로 계속 확장
+
+___________
+29p
+::이 화살표
+<> : non terminal
+ |; 왼쪽 오른쪽 둘중 하나는 derivation 될 수 있다는 의미
+
+30p
+A>  non terminal 두개
+A> terminal 하나
+A> 입실론 
+이것만 정의해놓음
+
+
+32p
+machine 정의, m 정의원소 6가지
+
+36p
+a/0 은 a입력 0출력 - 이건 이해쉽다
+
+37p 
+fnite state automaton  은 출력이 없음
+대신 뭘 accept할 껀지 정함
+
+39p
+동글뱅이 두개있는게 accpet. 마지막이 거기 도달하면 출력 아니면 안출력
+
+
+40p
+111만 (진짜 1 3개만 > 사이클 만들면 안됨)포함하는 유한상태 오토마타 어케만듬?
+> 휴대폰 노트 그림
+> 실제 문제해결에 쓰임
+
+>> 111만 만들고 싶을때 아닌숫자 (0)은 하나의 노드 만들어서 거기에 다 보내고 거기서 돌리면 non accept 한 노드가 되기때문에 가능
+
+41p
+nondeterministic finite state automata
+
+42p
+b가 들어가면 어디로갈지 모름 > 그래서 nondeterministic
+
+45p
+deterministic finite automata = regular grammar
+
+a^*ba^*b(a V(or) b)^*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+<<<<<<< HEAD
+11/16(수)
+formal language
+
+language: 우리가 표기하기 위한 시퀀스들의 부분집합
+
+grammar definiction 
+
+derivation tree
+
+grammar type
+
+____ 지난시간 복습
+23p
+
+context freem grammar
+
+24p
+논터미널 하나는 들어가야 (하나도 없으면 정의가 안됨)
+
+context sensitive
+1-2 
+3-6 논터미널
+7-10 터미널1 논터미널1
+
+아뭐라는겨
+
+25p
+regular grammar
+2. right regular grammer (오른쪽으로 계속 확장)
+아래2. left regualar grammer
+
+26p
+컨택스 샌서티브 - 싱글 논터미널 왼쪽에 하나 있어야'
+봐야되는건 옆에있는 알파와 알파프라임이 유지하는지를 봐야함
+
+3.4. context free
+4. 왼쪽에 다 터미널들, 그 뒤에 논터미널 > 오른쪽으로 계속 확장
+
+___________
+29p
+::이 화살표
+<> : non terminal
+ |; 왼쪽 오른쪽 둘중 하나는 derivation 될 수 있다는 의미
+
+30p
+A>  non terminal 두개
+A> terminal 하나
+A> 입실론 
+이것만 정의해놓음
+
+
+32p
+machine 정의, m 정의원소 6가지
+
+36p
+a/0 은 a입력 0출력 - 이건 이해쉽다
+
+37p 
+fnite state automaton  은 출력이 없음
+대신 뭘 accept할 껀지 정함
+
+39p
+동글뱅이 두개있는게 accpet. 마지막이 거기 도달하면 출력 아니면 안출력
+
+
+40p
+111만 (진짜 1 3개만 > 사이클 만들면 안됨)포함하는 유한상태 오토마타 어케만듬?
+> 휴대폰 노트 그림
+> 실제 문제해결에 쓰임
+
+>> 111만 만들고 싶을때 아닌숫자 (0)은 하나의 노드 만들어서 거기에 다 보내고 거기서 돌리면 non accept 한 노드가 되기때문에 가능
+
+41p
+nondeterministic finite state automata
+
+42p
+b가 들어가면 어디로갈지 모름 > 그래서 nondeterministic
+
+45p
+deterministic finite automata = regular grammar
+
+a^*ba^*b(a V(or) b)^*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+11/16(수)
+formal language
+
+language: 우리가 표기하기 위한 시퀀스들의 부분집합
+
+grammar definiction 
+
+derivation tree
+
+grammar type
+
+____ 지난시간 복습
+23p
+
+context freem grammar
+
+24p
+논터미널 하나는 들어가야 (하나도 없으면 정의가 안됨)
+
+context sensitive
+1-2 
+3-6 논터미널
+7-10 터미널1 논터미널1
+
+아뭐라는겨
+
+25p
+regular grammar
+2. right regular grammer (오른쪽으로 계속 확장)
+아래2. left regualar grammer
+
+26p
+컨택스 샌서티브 - 싱글 논터미널 왼쪽에 하나 있어야'
+봐야되는건 옆에있는 알파와 알파프라임이 유지하는지를 봐야함
+
+3.4. context free
+4. 왼쪽에 다 터미널들, 그 뒤에 논터미널 > 오른쪽으로 계속 확장
+
+___________
+29p
+::이 화살표
+<> : non terminal
+ |; 왼쪽 오른쪽 둘중 하나는 derivation 될 수 있다는 의미
+
+30p
+A>  non terminal 두개
+A> terminal 하나
+A> 입실론 
+이것만 정의해놓음
+
+
+32p
+machine 정의, m 정의원소 6가지
+
+36p
+a/0 은 a입력 0출력 - 이건 이해쉽다
+
+37p 
+fnite state automaton  은 출력이 없음
+대신 뭘 accept할 껀지 정함
+
+39p
+동글뱅이 두개있는게 accpet. 마지막이 거기 도달하면 출력 아니면 안출력
+
+
+40p
+111만 (진짜 1 3개만 > 사이클 만들면 안됨)포함하는 유한상태 오토마타 어케만듬?
+> 휴대폰 노트 그림
+> 실제 문제해결에 쓰임
+
+>> 111만 만들고 싶을때 아닌숫자 (0)은 하나의 노드 만들어서 거기에 다 보내고 거기서 돌리면 non accept 한 노드가 되기때문에 가능
+
+41p
+nondeterministic finite state automata
+
+42p
+b가 들어가면 어디로갈지 모름 > 그래서 nondeterministic
+
+45p
+deterministic finite automata = regular grammar
+
+a^*ba^*b(a V(or) b)^*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96

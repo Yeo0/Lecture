@@ -1,0 +1,150 @@
+<<<<<<< HEAD
+161123 수
+graph 알고리즘
+
+topological sorting - 싸이클없는 유향(방향있는)그래프
+노드간의 방향 일관적
+
+위상정렬알고리즘
+1. 진입간선 있는지없는지
+진입간선 없는거 지움 -> 있는지 없는지 판단필요
+
+2. 진출간선있는지 없는지
+depth .... search 로 해결 (... 뭘까)
+ㄴ자식 있는지 없는지
+순서대로 오른쪽부터 넣으면 됨
+
+선택되었을때 걔가 더 방문할 자식이 있는지 없는지 - 없으면 순서배정. 있으면 못넣음
+
+
+
+
+
+
+
+
+3. 벨만뭐..
+
+방향있고, 웨이트있는데 -인것도 있음. (다익스트라가 잘 안될때는 네거티브 웨이트 있을때, 그래서 못사용하니 이거 배우는거)
+
+
+약간 MLP비슷한데 (multi layer perceptron)
+엣ㅈㅣ*층수 = v*2
+
+
+4. strongly connected ocmponent
+
+strongly connected 양쪽방향이 둘다 연결되어야함 (directed graph 에만 해당)
+
+vertex set 안의 subset고르고 이안의 노드들 pair 가 다 strongly connected 일때 저렇게 부름 (쩡의임)
+
+이걸 전제조거으로 하는 알고리즘 많아서 배움
+
+어떤 두노드 있을때 
+
+pair 가 될 수 없으면 혼자 stronly connected component가 됨
+
+
+64 a 4개의 scc 생김
+
+=======
+<<<<<<< HEAD
+161123 수
+graph 알고리즘
+
+topological sorting - 싸이클없는 유향(방향있는)그래프
+노드간의 방향 일관적
+
+위상정렬알고리즘
+1. 진입간선 있는지없는지
+진입간선 없는거 지움 -> 있는지 없는지 판단필요
+
+2. 진출간선있는지 없는지
+depth .... search 로 해결 (... 뭘까)
+ㄴ자식 있는지 없는지
+순서대로 오른쪽부터 넣으면 됨
+
+선택되었을때 걔가 더 방문할 자식이 있는지 없는지 - 없으면 순서배정. 있으면 못넣음
+
+
+
+
+
+
+
+
+3. 벨만뭐..
+
+방향있고, 웨이트있는데 -인것도 있음. (다익스트라가 잘 안될때는 네거티브 웨이트 있을때, 그래서 못사용하니 이거 배우는거)
+
+
+약간 MLP비슷한데 (multi layer perceptron)
+엣ㅈㅣ*층수 = v*2
+
+
+4. strongly connected ocmponent
+
+strongly connected 양쪽방향이 둘다 연결되어야함 (directed graph 에만 해당)
+
+vertex set 안의 subset고르고 이안의 노드들 pair 가 다 strongly connected 일때 저렇게 부름 (쩡의임)
+
+이걸 전제조거으로 하는 알고리즘 많아서 배움
+
+어떤 두노드 있을때 
+
+pair 가 될 수 없으면 혼자 stronly connected component가 됨
+
+
+64 a 4개의 scc 생김
+
+=======
+161123 수
+graph 알고리즘
+
+topological sorting - 싸이클없는 유향(방향있는)그래프
+노드간의 방향 일관적
+
+위상정렬알고리즘
+1. 진입간선 있는지없는지
+진입간선 없는거 지움 -> 있는지 없는지 판단필요
+
+2. 진출간선있는지 없는지
+depth .... search 로 해결 (... 뭘까)
+ㄴ자식 있는지 없는지
+순서대로 오른쪽부터 넣으면 됨
+
+선택되었을때 걔가 더 방문할 자식이 있는지 없는지 - 없으면 순서배정. 있으면 못넣음
+
+
+
+
+
+
+
+
+3. 벨만뭐..
+
+방향있고, 웨이트있는데 -인것도 있음. (다익스트라가 잘 안될때는 네거티브 웨이트 있을때, 그래서 못사용하니 이거 배우는거)
+
+
+약간 MLP비슷한데 (multi layer perceptron)
+엣ㅈㅣ*층수 = v*2
+
+
+4. strongly connected ocmponent
+
+strongly connected 양쪽방향이 둘다 연결되어야함 (directed graph 에만 해당)
+
+vertex set 안의 subset고르고 이안의 노드들 pair 가 다 strongly connected 일때 저렇게 부름 (쩡의임)
+
+이걸 전제조거으로 하는 알고리즘 많아서 배움
+
+어떤 두노드 있을때 
+
+pair 가 될 수 없으면 혼자 stronly connected component가 됨
+
+
+64 a 4개의 scc 생김
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96

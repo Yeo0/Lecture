@@ -1,0 +1,189 @@
+<<<<<<< HEAD
+161121 월
+5.1.2 조건연산
+
+중괄호는 else앞에
+~~~
+
+if 의 조건에는 하나의 논리값만 사용됨!!
+조건의 첫번째 값의 if문의 결과로 나옴
+~~~
+
+~~~~
+
+~~~
+
+~~~
+
+a=1
+b=4
+c=3
+
+D=b^2-4*a*c
+
+if(D>0){
+roots=c((-b+sqrt(D))/(2*a),(-b-sqrt(D))/(2*a))
+} else if (D==0) {
+roots= -b/(2*a)
+} else{
+roots=c("No root")
+}
+
+roots
+
+x=c(10,3,6,9)
+y=c(1,5,4,12)
+
+
+
+
+if(x>y) x else y
+	
+
+x=runif(1)-0.5
+x
+
+if(x<0) print(abs(x))
+if(x<0) print(abs(x)) else print(x)
+
+ifelse(x<0,abs(x),x)
+
+여기부터 중요!!
+if(x<0) {print(x); print("X is negative")
+} else {print(x); print("X is positive")}
+
+if(x>=-0.5 && x<=0.5) print(x) else print("wrong number")
+
+복합조건문
+x=c(1,2,5,7,8)
+y=c(3,7,5,2,1)
+w=2
+u=7
+(x>2)&(y>3) 
+(x>2)&&(y>3) #첫번째 값이 그 결과값 됨
+(w>2)&(u>3)
+(w>2)&&(u>3)
+(x>2)|(y>3)
+(x>2)||(y>3)
+(w>2)|(u>3)
+
+
+연습문제 5장에 1번
+<피보나치 수열>
+
+a=0
+b=1
+x=a+b
+
+is.even(4)
+
+
+
+
+
+
+
+
+i가 246810에 속하니?
+i==c(2,4,6,8,10)
+ne
+
+
+
+
+
+=======
+161121 월
+5.1.2 조건연산
+
+중괄호는 else앞에
+~~~
+
+if 의 조건에는 하나의 논리값만 사용됨!!
+조건의 첫번째 값의 if문의 결과로 나옴
+~~~
+
+~~~~
+
+~~~
+
+~~~
+
+a=1
+b=4
+c=3
+
+D=b^2-4*a*c
+
+if(D>0){
+roots=c((-b+sqrt(D))/(2*a),(-b-sqrt(D))/(2*a))
+} else if (D==0) {
+roots= -b/(2*a)
+} else{
+roots=c("No root")
+}
+
+roots
+
+x=c(10,3,6,9)
+y=c(1,5,4,12)
+
+
+
+
+if(x>y) x else y
+	
+
+x=runif(1)-0.5
+x
+
+if(x<0) print(abs(x))
+if(x<0) print(abs(x)) else print(x)
+
+ifelse(x<0,abs(x),x)
+
+여기부터 중요!!
+if(x<0) {print(x); print("X is negative")
+} else {print(x); print("X is positive")}
+
+if(x>=-0.5 && x<=0.5) print(x) else print("wrong number")
+
+복합조건문
+x=c(1,2,5,7,8)
+y=c(3,7,5,2,1)
+w=2
+u=7
+(x>2)&(y>3) 
+(x>2)&&(y>3) #첫번째 값이 그 결과값 됨
+(w>2)&(u>3)
+(w>2)&&(u>3)
+(x>2)|(y>3)
+(x>2)||(y>3)
+(w>2)|(u>3)
+
+
+연습문제 5장에 1번
+<피보나치 수열>
+
+a=0
+b=1
+x=a+b
+
+is.even(4)
+
+
+
+
+
+
+
+
+i가 246810에 속하니?
+i==c(2,4,6,8,10)
+ne
+
+
+
+
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1

@@ -1,0 +1,146 @@
+<<<<<<< HEAD
+class(state.region)
+sr=state.region
+str(sr)
+sr[1:5]
+head(sr,3)
+counts=table(sr)
+counts
+class(counts)
+mode(counts)
+
+barplot(counts,main="SimpleBar Chart",
+xlab="Region",ylab="Frequency")
+
+plot(sr,main="SimpleBar Chart",
+xlab="Region", ylab="Frequency")
+
+par(new=T)
+x11()
+
+
+
+함수 만들어보기
+
+myplot=function(x){
+class(x)
+if (class(x)=table){
+barplot(x)
+} else (class(x)=factor){
+plot(x)}
+
+
+..어떻게하는겨//
+
+
+attach(mtcars)
+cyl
+table(cyl)
+barplot(table(cyl),main="Simple Bar Chart", xlab="Number of Cylinders",ylab="Frequency",col="ivory")
+
+barplot(table(cyl),names.arg=paste(c(4,6,8),"cylinders"))
+
+
+counts=table(sr)
+region=names(counts)
+region
+pie(counts,label=region,main="SimplePie Chart")
+
+pct=round(100*counts/sum(counts))
+region2=paste(region,"(",pct,"%)",sep="")
+region2
+pie(counts,label=region2,col=rainbow(length(counts)),main="PieChart with Percentages")
+x11()
+
+install.packages("plotrix")
+library(plotrix)
+pie3D(counts,labels=region2,explode=0.1,main="3D Pie Chart")
+
+library(plotrix)
+fan.plot(counts,labels=region,main="Fan Plot")
+
+counts=table(sr)
+region=names(counts)
+dotchart(counts,labels=region, main="Simple Dot Chart")
+counts
+
+as.numeric(counts)
+dotchart(as.numeric(counts),labels=region,main="Simple Dot Chart")
+
+
+지난번에 냈던 ㅈ숙제 중 평균 표준편차 계산했던거 정답을설명했었음 앞에반에
+해보라는 함수들 다 만들어 봐야함!!!!!!
+=======
+class(state.region)
+sr=state.region
+str(sr)
+sr[1:5]
+head(sr,3)
+counts=table(sr)
+counts
+class(counts)
+mode(counts)
+
+barplot(counts,main="SimpleBar Chart",
+xlab="Region",ylab="Frequency")
+
+plot(sr,main="SimpleBar Chart",
+xlab="Region", ylab="Frequency")
+
+par(new=T)
+x11()
+
+
+
+함수 만들어보기
+
+myplot=function(x){
+class(x)
+if (class(x)=table){
+barplot(x)
+} else (class(x)=factor){
+plot(x)}
+
+
+..어떻게하는겨//
+
+
+attach(mtcars)
+cyl
+table(cyl)
+barplot(table(cyl),main="Simple Bar Chart", xlab="Number of Cylinders",ylab="Frequency",col="ivory")
+
+barplot(table(cyl),names.arg=paste(c(4,6,8),"cylinders"))
+
+
+counts=table(sr)
+region=names(counts)
+region
+pie(counts,label=region,main="SimplePie Chart")
+
+pct=round(100*counts/sum(counts))
+region2=paste(region,"(",pct,"%)",sep="")
+region2
+pie(counts,label=region2,col=rainbow(length(counts)),main="PieChart with Percentages")
+x11()
+
+install.packages("plotrix")
+library(plotrix)
+pie3D(counts,labels=region2,explode=0.1,main="3D Pie Chart")
+
+library(plotrix)
+fan.plot(counts,labels=region,main="Fan Plot")
+
+counts=table(sr)
+region=names(counts)
+dotchart(counts,labels=region, main="Simple Dot Chart")
+counts
+
+as.numeric(counts)
+dotchart(as.numeric(counts),labels=region,main="Simple Dot Chart")
+
+
+지난번에 냈던 ㅈ숙제 중 평균 표준편차 계산했던거 정답을설명했었음 앞에반에
+해보라는 함수들 다 만들어 봐야함!!!!!!
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+시험나올삐이이이ㅣㄹ

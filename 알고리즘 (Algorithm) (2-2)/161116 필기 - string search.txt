@@ -1,0 +1,102 @@
+<<<<<<< HEAD
+String Search (Matching) Algorithms  - 11/16
+
+3p
+
+m이 n보다 많이 작음
+
+bioinformatic에서 많이사용
+
+4p
+brute - force matching algorithm
+
+5p
+
+6p
+처음에는 맞을때까지 다보는거였ㅋㅋ
+
+7p
+
+8p
+
+9p
+라빈-카프  - 해싱알고리즘
+* 와 + 많이함
+
+
+
+-
+패턴길이가 좀만 늘어도 연산량 어마어마해짐 -> overflow발생
+
+해쉬테이블 
+
+
+=======
+<<<<<<< HEAD
+String Search (Matching) Algorithms  - 11/16
+
+3p
+
+m이 n보다 많이 작음
+
+bioinformatic에서 많이사용
+
+4p
+brute - force matching algorithm
+
+5p
+
+6p
+처음에는 맞을때까지 다보는거였ㅋㅋ
+
+7p
+
+8p
+
+9p
+라빈-카프  - 해싱알고리즘
+* 와 + 많이함
+
+
+
+-
+패턴길이가 좀만 늘어도 연산량 어마어마해짐 -> overflow발생
+
+해쉬테이블 
+
+
+=======
+String Search (Matching) Algorithms  - 11/16
+
+3p
+
+m이 n보다 많이 작음
+
+bioinformatic에서 많이사용
+
+4p
+brute - force matching algorithm
+
+5p
+
+6p
+처음에는 맞을때까지 다보는거였ㅋㅋ
+
+7p
+
+8p
+
+9p
+라빈-카프  - 해싱알고리즘
+* 와 + 많이함
+
+
+
+-
+패턴길이가 좀만 늘어도 연산량 어마어마해짐 -> overflow발생
+
+해쉬테이블 
+
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+>>>>>>> 16b01887c2eaf2208c618056753b32ac8f5c7c96

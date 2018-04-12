@@ -1,0 +1,319 @@
+<<<<<<< HEAD
+1. 루프연산
+-for ()
+-while () 
+
+var: 변수이름
+seq: 벡터
+
+괄호 중괄호 위치 중요!
+아래 명령문 여려개일때만 중괄호. 하나일 때는 해줘도 안해줘도 노상관
+
+for(i in seq(1,5,2))print(i)
+ for: 특정한 변수값이 거기에 있는 시퀀스의 한개한개값으로 바꾸어져서 표현
+
+~~~~~~~
+while : 여기에 이 조건이 만족하는 한 {}안에 표현식 계속 반복 수행하라
+while(조건){
+표현식
+}
+
+i=1
+while(i<=5){
+print(i)
+i=i+1
+}
+~~~~~~
+factorial 계산
+
+facx=1
+for(i in 1:5){
+facx=facx*i
+cat(i,"!=",facx,"\n",sep="")}
+
+ㄴ 여기서중괄호를 밑으로 내리면 안되는듯함
+
+
+~~~~~~~
+facx=1
+i=1
+while(i<=5){
+facx=facx*i
+cat(i,"!=",facx,"\n",sep="")
+i=i+1
+}
+
+~~~~~~
+연습 합계산
+
+for(i in 1:5){
+i=i+1
+print(sum(i))
+}
+
+모르게뜌
+
+답
+
+sumx=0
+i=1
+while(i<=5){
+sumx=sumx+i
+cat("sum to",i," =", sumx, "\n",sep="")
+i=i+1
+}
+틀린부분 : sum을 정의해줘야함! (사진찍음)
+
+그럼 for로는??
+
+sumx=0
+for(i in 1:5){
+sumx=sumx+i
+print(sumx)
+}
+
+d오오 맞음
+
+만약 1에서 1000까지 더해서 결과값만 보고싶으면?
+sumx=0
+for(i in 1:1000){
+sumx=sumx+i
+}
+print(sumx)
+
+
+오..맞는거같....
+
+평균나오게끔 (평균이란게... 각각 나누라는건가 아님 저 것들의 총평균이라는건가)
+sumx=0
+for(i in 1:5){
+sumx=sumx+i
+print(sumx/i)
+}
+
+아ㅏㅇ 이게맞음!! 이평균말한거 맞음
+
+
+
+>> print 되는건 평균이 되야됨. sum은 계속역할을 해야함.
+   즉 sum자체를 변형을 시키면 안됨. sum은 sum대로 돌아가고
+~~~~~
+마지막 연습!
+ 
+
+문제 1,1,1,8,9 의평균 -> for 가편리
+sumx=0
+for(i in c(1,1,1,8,9)){
+sumx=sumx+i
+}
+print(sumx/length(c(1,1,1,8,9)))
+
+or
+sumx=0
+for(i in c(1,1,1,8,9)){
+sumx=sumx+i
+print(sumx/i)
+}
+
+
+
+위에가 맞음!!!
+
+while로 하는법
+sumx=0
+x=c(1,1,1,8,7,6)
+k=length(x)
+i=1
+
+while(i<=k){
+sumx=sumx+x[i]
+i=i+1
+}
+sumx/k
+#미리다 정의해놔야 (사지찍음)
+
+
+하나만더 
+위문제에서 첫번째 3번째 5번째만 더해서 값을 내보자
+
+sumx=0
+x=c(1,1,1,8,7,6)
+k=length(x)
+i=1
+
+for (i in c(x[1],x[3],x[5])){
+sumx=sumx+i
+i=i+1
+}
+print(sumx/3)
+
+음 이위에껀 값이 틀린드 ㅅ다시해보자
+
+
+
+
+
+
+
+
+
+=======
+1. 루프연산
+-for ()
+-while () 
+
+var: 변수이름
+seq: 벡터
+
+괄호 중괄호 위치 중요!
+아래 명령문 여려개일때만 중괄호. 하나일 때는 해줘도 안해줘도 노상관
+
+for(i in seq(1,5,2))print(i)
+ for: 특정한 변수값이 거기에 있는 시퀀스의 한개한개값으로 바꾸어져서 표현
+
+~~~~~~~
+while : 여기에 이 조건이 만족하는 한 {}안에 표현식 계속 반복 수행하라
+while(조건){
+표현식
+}
+
+i=1
+while(i<=5){
+print(i)
+i=i+1
+}
+~~~~~~
+factorial 계산
+
+facx=1
+for(i in 1:5){
+facx=facx*i
+cat(i,"!=",facx,"\n",sep="")}
+
+ㄴ 여기서중괄호를 밑으로 내리면 안되는듯함
+
+
+~~~~~~~
+facx=1
+i=1
+while(i<=5){
+facx=facx*i
+cat(i,"!=",facx,"\n",sep="")
+i=i+1
+}
+
+~~~~~~
+연습 합계산
+
+for(i in 1:5){
+i=i+1
+print(sum(i))
+}
+
+모르게뜌
+
+답
+
+sumx=0
+i=1
+while(i<=5){
+sumx=sumx+i
+cat("sum to",i," =", sumx, "\n",sep="")
+i=i+1
+}
+틀린부분 : sum을 정의해줘야함! (사진찍음)
+
+그럼 for로는??
+
+sumx=0
+for(i in 1:5){
+sumx=sumx+i
+print(sumx)
+}
+
+d오오 맞음
+
+만약 1에서 1000까지 더해서 결과값만 보고싶으면?
+sumx=0
+for(i in 1:1000){
+sumx=sumx+i
+}
+print(sumx)
+
+
+오..맞는거같....
+
+평균나오게끔 (평균이란게... 각각 나누라는건가 아님 저 것들의 총평균이라는건가)
+sumx=0
+for(i in 1:5){
+sumx=sumx+i
+print(sumx/i)
+}
+
+아ㅏㅇ 이게맞음!! 이평균말한거 맞음
+
+
+
+>> print 되는건 평균이 되야됨. sum은 계속역할을 해야함.
+   즉 sum자체를 변형을 시키면 안됨. sum은 sum대로 돌아가고
+~~~~~
+마지막 연습!
+ 
+
+문제 1,1,1,8,9 의평균 -> for 가편리
+sumx=0
+for(i in c(1,1,1,8,9)){
+sumx=sumx+i
+}
+print(sumx/length(c(1,1,1,8,9)))
+
+or
+sumx=0
+for(i in c(1,1,1,8,9)){
+sumx=sumx+i
+print(sumx/i)
+}
+
+
+
+위에가 맞음!!!
+
+while로 하는법
+sumx=0
+x=c(1,1,1,8,7,6)
+k=length(x)
+i=1
+
+while(i<=k){
+sumx=sumx+x[i]
+i=i+1
+}
+sumx/k
+#미리다 정의해놔야 (사지찍음)
+
+
+하나만더 
+위문제에서 첫번째 3번째 5번째만 더해서 값을 내보자
+
+sumx=0
+x=c(1,1,1,8,7,6)
+k=length(x)
+i=1
+
+for (i in c(x[1],x[3],x[5])){
+sumx=sumx+i
+i=i+1
+}
+print(sumx/3)
+
+음 이위에껀 값이 틀린드 ㅅ다시해보자
+
+
+
+
+
+
+
+
+
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1

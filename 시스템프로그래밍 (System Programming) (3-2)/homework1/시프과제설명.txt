@@ -1,0 +1,44 @@
+<<<<<<< HEAD
+ls
+cd Data:ab(폴더이름)
+
+make btest
+
+
+./btest
+
+vi bits.c
+
+
+make btest
+
+./btest
+
+.btest.g
+
+vi bits.c
+
+isZero (longx)
+=======
+ls
+cd Data:ab(폴더이름)
+
+make btest
+
+
+./btest
+
+vi bits.c
+
+
+make btest
+
+./btest
+
+.btest.g
+
+vi bits.c
+
+isZero (longx)
+>>>>>>> 704346157696d5c879444e5bc135c15fa187d2e1
+!x
