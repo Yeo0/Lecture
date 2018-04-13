@@ -22,9 +22,9 @@
 
 **응용수학2 (Calculus2)**
 
-**전산실습 (R programming)**
+**전산실습 (R Programming)**
 
-**정보통계학 (Information And Statistics)**
+**정보통계학 (Information and Statistics)**
 
 **탐색적자료분석 (Exploratory Data Analysis)** 
 
@@ -64,7 +64,7 @@
 
 **벤처창업및경영 (Venture Start-up Promotion and Management)**
 
-부동산과사회 (Real Estate And Society) (1-1)
+부동산과사회 (Real Estate and Society) (1-1)
 
 소비자정보와글로벌마켓 (Consumer Information and Global Market) (1-2)
 
