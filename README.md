@@ -32,6 +32,9 @@
 
 **회귀분석 (Regression Analysis)**
 
+Data Mining (Data Mining) (4-1)
+
+**Matlab (Matlab)**
 
 
 
@@ -47,6 +50,9 @@
 
 컴퓨터공학프로그래밍1 (JAVA Programming1) (2-1)
 
+Computer Support for Study (4-1)
+
+**Python (Python for Scientific Computations and Control)**
 
 
 
@@ -77,3 +83,5 @@
 초급스페인어 (Spanish for Beginners) (3-1) 
 
 현대경제와국제무역 (Trade in the Contemporary Economy) (1-1)
+
+Economic and management principles (4-1)
