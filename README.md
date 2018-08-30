@@ -36,6 +36,7 @@ Data Mining (Data Mining) (4-1)
 
 **Matlab (Matlab)**
 
+<br/>
 
 
 # Computer Science
@@ -54,6 +55,7 @@ Computer Support for Study (4-1)
 
 **Python (Python for Scientific Computations and Control)**
 
+<br/>
 
 
 # Etc
