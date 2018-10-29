@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="8.1.000" expanded="true" height="68" name="Retrieve Sonar" width="90" x="45" y="85">
+        <parameter key="repository_entry" value="//Samples/data/Sonar"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="8.1.000" expanded="true" height="82" name="Multiply" width="90" x="45" y="187"/>
+      <operator activated="true" class="weight_by_correlation" compatibility="8.1.000" expanded="true" height="82" name="Weight by Correlation" width="90" x="179" y="34">
+        <parameter key="normalize_weights" value="false"/>
+        <parameter key="sort_weights" value="true"/>
+        <parameter key="sort_direction" value="ascending"/>
+        <parameter key="squared_correlation" value="false"/>
+      </operator>
+      <operator activated="true" class="select_by_weights" compatibility="8.1.000" expanded="true" height="103" name="Select by Weights" width="90" x="313" y="34">
+        <parameter key="weight_relation" value="greater equals"/>
+        <parameter key="weight" value="1.0"/>
+        <parameter key="k" value="10"/>
+        <parameter key="p" value="0.5"/>
+        <parameter key="deselect_unknown" value="true"/>
+        <parameter key="use_absolute_weights" value="true"/>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="8.1.000" expanded="true" height="124" name="Cross Validation" width="90" x="447" y="34">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="10"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+        </process>
+      </operator>
+      <connect from_op="Retrieve Sonar" from_port="output" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="Weight by Correlation" to_port="example set"/>
+      <connect from_op="Weight by Correlation" from_port="weights" to_op="Select by Weights" to_port="weights"/>
+      <connect from_op="Weight by Correlation" from_port="example set" to_op="Select by Weights" to_port="example set input"/>
+      <connect from_op="Select by Weights" from_port="example set output" to_op="Cross Validation" to_port="example set"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="source_input 2" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="text:read_document" compatibility="8.1.000" expanded="true" height="68" name="Read Document" width="90" x="45" y="34">
+        <parameter key="file" value="C:\Users\guenyeol\Desktop\news20.tar\20_newsgroup\comp.graphics_reduced\37261"/>
+        <parameter key="extract_text_only" value="true"/>
+        <parameter key="use_file_extension_as_type" value="true"/>
+        <parameter key="content_type" value="txt"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="text:tokenize" compatibility="8.1.000" expanded="true" height="68" name="Tokenize" width="90" x="179" y="34">
+        <parameter key="mode" value="non letters"/>
+        <parameter key="characters" value=".:"/>
+        <parameter key="language" value="English"/>
+        <parameter key="max_token_length" value="3"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="8.1.000" expanded="true" height="166" name="Multiply" width="90" x="313" y="34"/>
+      <operator activated="true" class="text:filter_stopwords_dictionary" compatibility="8.1.000" expanded="true" height="82" name="Filter Stopwords (Dictionary)" width="90" x="447" y="391">
+        <parameter key="file" value="C:\Users\guenyeol\Desktop\test.txt"/>
+        <parameter key="case_sensitive" value="false"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="text:filter_stopwords_english" compatibility="8.1.000" expanded="true" height="68" name="Filter Stopwords (English)" width="90" x="447" y="289"/>
+      <operator activated="true" class="text:filter_tokens_by_content" compatibility="8.1.000" expanded="true" height="68" name="Filter Tokens (by Content)" width="90" x="447" y="187">
+        <parameter key="condition" value="contains"/>
+        <parameter key="string" value="data"/>
+        <parameter key="case_sensitive" value="false"/>
+        <parameter key="invert condition" value="false"/>
+      </operator>
+      <operator activated="true" class="text:filter_by_length" compatibility="8.1.000" expanded="true" height="68" name="Filter Tokens (by Length)" width="90" x="447" y="85">
+        <parameter key="min_chars" value="4"/>
+        <parameter key="max_chars" value="25"/>
+      </operator>
+      <connect from_op="Read Document" from_port="output" to_op="Tokenize" to_port="document"/>
+      <connect from_op="Tokenize" from_port="document" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_port="result 1"/>
+      <connect from_op="Multiply" from_port="output 2" to_op="Filter Tokens (by Length)" to_port="document"/>
+      <connect from_op="Multiply" from_port="output 3" to_op="Filter Tokens (by Content)" to_port="document"/>
+      <connect from_op="Multiply" from_port="output 4" to_op="Filter Stopwords (English)" to_port="document"/>
+      <connect from_op="Multiply" from_port="output 5" to_op="Filter Stopwords (Dictionary)" to_port="document"/>
+      <connect from_op="Filter Stopwords (Dictionary)" from_port="document" to_port="result 5"/>
+      <connect from_op="Filter Stopwords (English)" from_port="document" to_port="result 4"/>
+      <connect from_op="Filter Tokens (by Content)" from_port="document" to_port="result 3"/>
+      <connect from_op="Filter Tokens (by Length)" from_port="document" to_port="result 2"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
+      <portSpacing port="sink_result 6" spacing="0"/>
+    </process>
+  </operator>
+</process>
