@@ -32,7 +32,7 @@
 
 **회귀분석 (Regression Analysis)**
 
-Data Mining (Data Mining) (4-1)
+**Data Mining (Data Mining)**
 
 **Matlab (Matlab)**
 
